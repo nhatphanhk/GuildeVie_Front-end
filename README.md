@@ -1,3 +1,91 @@
+npx create-react-app : Tạo dự án React
+npm install axios react-router-dom: 
+- axios dùng để gọi API
+- react-router-dom điều hướng router
+npm install --save-dev eslint prettier
+- định dụng mã nguồn, format lại toàn bộ cấu trúc code
+
+I.	Cấu trúc Files:
+front-end/
+  ├── public/
+  ├── src/
+  │   ├── assets/
+  │   ├── components/
+  │   ├── containers/
+  │   ├── context/
+  │   ├── hooks/
+  │   ├── pages/
+  │   ├── services/
+  │   ├── styles/
+  │   ├── utils/
+  │   ├── App.js
+  │   ├── index.js
+  │   └── setupTests.js
+  └── package.json
+
+- public/
+Chứa các file tĩnh như HTML, hình ảnh, favicon.
+- src/
++ assets/
+Chứa các tài sản tĩnh như hình ảnh, fonts, v.v.
++ components/
+Chứa các component React.
+=> Đặt tên theo mô hình: ComponentName.js và thư mục con nếu cần thiết (e.g., Button/, Header/).
++ containers/
+Chứa các container component, thường kết nối với Redux hoặc Context API.
++ context/
+Chứa các file định nghĩa và cung cấp context API.
++ hooks/
+Chứa các custom hooks của React.
++ pages/
+Chứa các trang chính của ứng dụng.
+=> Đặt tên theo mô hình: PageName.js (e.g., HomePage.js, LoginPage.js).
++ services/
+Chứa các file tương tác với API.
+=> Đặt tên theo mô hình: serviceName.js (e.g., userService.js).
++ styles/
+Chứa các file CSS hoặc SCSS.
+=> Đặt tên theo mô hình: tênComponent.module.css hoặc tênComponent.module.scss.
++ utils/
+Chứa các hàm tiện ích, tương tự như backend.
++ App.js và index.js
+App.js: component gốc của ứng dụng.
+index.js: file khởi tạo và render ứng dụng React.
++ setupTests.js
+Chứa cấu hình cho việc test.
+
+======> Chạy front-end: npm start
+
+---------------------------------------------------
+
+II.	Quy tắc đặt tên
+File và thư mục: Tên file và thư mục nên sử dụng camelCase hoặc PascalCase tuỳ theo loại file. Tránh sử dụng dấu cách hoặc ký tự đặc biệt. Riêng tên project React theo quy tắc “project-name”
+Component: Sử dụng PascalCase (e.g., MyComponent.js).
+Hook: Sử dụng camelCase với tiền tố use (e.g., useAuth.js).
+
+---------------------------------------------------
+
+III.	Quy tắc khác
+
+-	Testing: Sử dụng các thư viện như Jest và React Testing Library cho việc test.
+o	Nếu cảm thấy ổn thì cài est và React Testing Library:
+	npm install --save-dev jest (Jest)
+	npm install --save-dev @testing-library/react @testing-library/jest-dom (React Testing Library)
+•	Việc này khá khó và phải viết một file riêng để test (ko khuyến khích)
+
+-	Version control: Tổ chức các commit theo một quy tắc nhất định (e.g., Conventional Commits).
+o	<type>[optional scope]: <description> 
+[optional body] [
+optional footer(s)]
+Closes #number-of-commit #Name-of-commit
+
+	Ví dụ: git commit -m "feat(auth): 
+thêm chức năng đăng nhập 
+- Thêm màn hình đăng nhập 
+- Kết nối API để xác thực người dùng 
+Closes #45 #HieuLee"
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
