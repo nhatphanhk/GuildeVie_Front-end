@@ -62,6 +62,7 @@ II.	Quy tắc đặt tên
 File và thư mục: Tên file và thư mục nên sử dụng camelCase hoặc PascalCase tuỳ theo loại file. Tránh sử dụng dấu cách hoặc ký tự đặc biệt. Riêng tên project React theo quy tắc “project-name”
 Component: Sử dụng PascalCase (e.g., MyComponent.js).
 Hook: Sử dụng camelCase với tiền tố use (e.g., useAuth.js).
+Branch cho common component: component_***_ten
 
 ---------------------------------------------------
 
