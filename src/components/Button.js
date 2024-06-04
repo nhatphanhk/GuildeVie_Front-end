@@ -1,10 +1,9 @@
-import { Button as ButtonTailwind } from "@headlessui/react";
+import { Button } from "@headlessui/react";
 
-function Button() {
-  return (
-    <ButtonTailwind className="rounded bg-sky-600 py-2 px-4 text-sm text-white data-[hover]:bg-sky-500 data-[active]:bg-sky-700">
-      Save changes
-    </ButtonTailwind>
-  );
+export default function ButtonTailwind() {
+    return (
+        <Button className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[open]:bg-gray-700 data-[focus]:outline-1 data-[focus]:outline-white">
+            Save changes
+        </Button>
+    );
 }
-export default Button;
