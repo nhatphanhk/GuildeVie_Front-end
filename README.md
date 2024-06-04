@@ -12,10 +12,9 @@ front-end/
   │   ├── assets/
   │   ├── components/
   │   ├── containers/
-  │   ├── context/
+  │   ├── api/
   │   ├── hooks/
-  │   ├── pages/
-  │   ├── services/
+  │   ├── views/
   │   ├── styles/
   │   ├── utils/
   │   ├── App.js
@@ -33,16 +32,14 @@ Chứa các component React.
 => Đặt tên theo mô hình: ComponentName.js và thư mục con nếu cần thiết (e.g., Button/, Header/).
 + containers/
 Chứa các container component, thường kết nối với Redux hoặc Context API.
-+ context/
-Chứa các file định nghĩa và cung cấp context API.
-+ hooks/
-Chứa các custom hooks của React.
-+ pages/
-Chứa các trang chính của ứng dụng.
-=> Đặt tên theo mô hình: PageName.js (e.g., HomePage.js, LoginPage.js).
-+ services/
++ api/
 Chứa các file tương tác với API.
 => Đặt tên theo mô hình: serviceName.js (e.g., userService.js).
++ hooks/
+Chứa các custom hooks của React.
++ views/
+Chứa các trang chính của ứng dụng.
+=> Đặt tên theo mô hình: PageName.js (e.g., HomePage.js, LoginPage.js).
 + styles/
 Chứa các file CSS hoặc SCSS.
 => Đặt tên theo mô hình: tênComponent.module.css hoặc tênComponent.module.scss.
