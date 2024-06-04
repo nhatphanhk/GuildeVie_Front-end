@@ -13,7 +13,7 @@ import {
     TrashIcon,
 } from "@heroicons/react/16/solid";
 
-export default function Example() {
+export default function DropdownTailwind() {
     return (
         <div className="fixed top-24 w-52 text-right">
             <Menu>
