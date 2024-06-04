@@ -1,15 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "./components/Button";
-import Tabs from "./components/Tabs";
-import Transition from "./components/Transition";
+import FieldsetTailwind from "./components/Fieldset";
 function App() {
     return (
         <div className="App">
-            <header className="App-header"></header>
-            <Button/>
-            <Tabs/>
-            <Transition/>
+            <header className="App-header">
+                <FieldsetTailwind></FieldsetTailwind>
+            </header>
         </div>
     );
 }
