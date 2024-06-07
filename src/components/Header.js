@@ -96,7 +96,7 @@ const Header = () => {
                                 <MenuIcon />
                             </IconButton>
                         ) : (
-                            <Button color="inherit">Sign in</Button>
+                            <Button color="inherit" sx={{border: '2px solid white', backgroundColor: 'rgba(255, 255, 255, 0.3)'}}>Sign in</Button>
                         )}
                         <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
                             <Grid container direction="column" justifyContent="space-between" alignItems="stretch" sx={{ padding: 2 }}>
@@ -107,7 +107,7 @@ const Header = () => {
                                     <Button sx={{ width: 100}} role="presentation" color="inherit">Market</Button>
                                 </Grid>
                                 <Grid item xs sx={{ padding: 2 }}>
-                                    <Button sx={{ width: 100, backgroundColor: '#00AD7C', color: 'white' }} role="presentation">Sign in</Button>
+                                    <Button sx={{ width: 100, backgroundColor: '#00AD7C', color: 'white'}} role="presentation">Sign in</Button>
                                 </Grid>
                             </Grid>
                         </Drawer>
