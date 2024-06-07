@@ -13,13 +13,11 @@ front-end/
   │   ├── components/
   │   ├── containers/
   │   ├── api/
-  │   ├── hooks/
   │   ├── views/
   │   ├── styles/
   │   ├── utils/
   │   ├── App.js
   │   ├── index.js
-  │   └── setupTests.js
   └── package.json
 
 - public/
