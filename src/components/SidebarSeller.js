@@ -62,7 +62,7 @@ export default function SidebarSeller() {
               marginTop: '30px',
               marginBottom: "30px",
               borderRadius: '10px',
-              maxHeight: '55rem',
+              maxHeight: '95vh',
               backgroundColor : '#00AD7C',
               color : 'white'
             },
@@ -72,7 +72,7 @@ export default function SidebarSeller() {
               marginTop: '30px',
               marginBottom: "30px",
               borderRadius: '10px',
-              maxHeight: '55rem',
+              maxHeight: '95vh',
               backgroundColor : '#00AD7C',
               color : 'white'
             },
@@ -82,7 +82,7 @@ export default function SidebarSeller() {
               marginTop: '30px',
               marginBottom: "30px",
               borderRadius: '10px',
-              maxHeight: '55rem',
+              maxHeight: '95vh',
               backgroundColor : '#00AD7C',
               color : 'white'
             },
