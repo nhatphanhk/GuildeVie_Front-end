@@ -6,6 +6,8 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import SidebarSeller from "../components/SidebarSeller";
 import InformationOfBuyer from "../components/InformationOfBuyer";
+import ListOfPosts from "../components/ListofPosts";
+import ListofIngredients from "../components/ListofIngredients";
 export default function SellerHomePage() {
   return (
     <Grid container spacing={2} sx={{ flexGrow: 1 }}>
@@ -13,7 +15,8 @@ export default function SellerHomePage() {
         <SidebarSeller/>
       </Grid>
       <Grid item xs={10}>
-        <InformationOfBuyer/>
+        {/* <InformationOfBuyer/> */}
+        <ListofIngredients/>
       </Grid>
     </Grid>
   );

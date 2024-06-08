@@ -13,32 +13,39 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import DeleteIcon from "@mui/icons-material/Delete";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import BlockIcon from '@mui/icons-material/Block';
 
 const columns = [
   { id: "id", label: "ID", minWidth: 50, align: "center" },
-  { id: "name", label: "Name", minWidth: 100 },
+  { id: "ingedientName", label: "Ingedient Name", align: "center",minWidth: 100 },
   {
-    id: "phoneNumber",
-    label: "Phone number",
+    id: "price",
+    label: "Price",
     minWidth: 100,
-    align: "left",
-  },
-  {
-    id: "details",
-    label: "Details",
-    minWidth: 300,
     align: "center",
-    format: (value) => value.toLocaleString("en-US"),
+    valueFormatter: (params) => {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        }).format(params.value);
+      }
   },
   {
     id: "quantity",
     label: "Quantity",
-    minWidth: 50,
+    minWidth: 100,
     align: "center",
   },
   {
-    id: "date",
-    label: "Date",
+    id: "importDate",
+    label: "Import Date",
+    align: "center",
+    minWidth: 50,
+    format: (value) => new Date(value).toLocaleDateString("vi-VI"),
+  },
+  {
+    id: "expiredDate",
+    label: "Expired Date",
     minWidth: 50,
     align: "center",
     format: (value) => new Date(value).toLocaleDateString("vi-VI"),
@@ -51,235 +58,26 @@ const columns = [
   },
 ];
 
-function createData(id, name, phoneNumber, details, quantity, date, action) {
-  return { id, name, phoneNumber, details, quantity, date, action };
+function createData(id, ingedientName, price, quantity, importDate, expiredDate, action) {
+  return { id, ingedientName, price, quantity, importDate, expiredDate, action };
 }
 
 const rows = [
-  createData(
-    "1",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "2",
-    "Kietnehihi2",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "3",
-    "Kietnehihi2",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "4",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "5",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "6",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "7",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "8",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "9",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "10",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "11",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "12",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "13",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "14",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "15",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "16",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
-  createData(
-    "17",
-    "Kietnehihi",
-    "0123456789",
-    "Lorem Ipsum is simply ",
-    10,
-    "25-12-2024",
-    <>
-      {" "}
-      <CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;
-      <DeleteIcon style={{ color: "red" }} />
-    </>
-  ),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
 ];
 
-export default function InformationOfBuyer() {
+export default function ListofIngredients() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
