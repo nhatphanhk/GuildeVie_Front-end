@@ -338,7 +338,7 @@ export default function InformationOfBuyer() {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
-      <Paper sx={{ width: "90%", overflow: "hidden", boxShadow: 3 }}>
+      <Paper sx={{ width: "70vw", overflow: "hidden", boxShadow: 3 }}>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
