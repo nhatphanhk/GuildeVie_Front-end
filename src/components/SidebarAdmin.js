@@ -16,8 +16,6 @@ import Avatar from '@mui/material/Avatar';
 import myImage from '../assets/logo-bar@2x.png';
 
 
-const drawerWidth = 300;
-
 export default function SidebarSeller() {
 
   const category = [
@@ -47,25 +45,46 @@ export default function SidebarSeller() {
     <Box sx={{ display: 'flex' ,}}>
       <Drawer
         sx={{
-          width: drawerWidth,
+          width: 300,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            marginLeft: '30px',
-            marginTop: '30px',
-            marginBottom: "30px",
-            borderRadius: '10px',
-            maxHeight: '850px',
-            backgroundColor : '#00AD7C',
-            color : 'white'
+            xl: {width: 300,
+              boxSizing: 'border-box',
+              marginLeft: '30px',
+              marginTop: '30px',
+              marginBottom: "30px",
+              borderRadius: '10px',
+              maxHeight: '95vh',
+              backgroundColor : '#00AD7C',
+              color : 'white'
+            },
+            lg: {width: 210,
+              boxSizing: 'border-box',
+              marginLeft: '30px',
+              marginTop: '30px',
+              marginBottom: "30px",
+              borderRadius: '10px',
+              maxHeight: '95vh',
+              backgroundColor : '#00AD7C',
+              color : 'white'
+            },
+            sm : {width: 200,
+              boxSizing: 'border-box',
+              marginLeft: '30px',
+              marginTop: '30px',
+              marginBottom: "30px",
+              borderRadius: '10px',
+              maxHeight: '95vh',
+              backgroundColor : '#00AD7C',
+              color : 'white'
+            },
           },
         }}
         variant="permanent"
         anchor="left"
       >
           <img src={myImage} alt="Logo"
-            style={{width : 200 , height : 60, margin : '20px', position: 'relative', top: '0', left : '30px'}}
+            style={{width : {xl : 180, lg : 150} , height : 60, margin : '20px', position: 'relative', top: '0', left : {xl : '30px', lg : '70px'}}}
           />
         <Divider variant='middle' style={{backgroundColor : '#f5f5f5',marginBottom: '10px' }}/>
         <List style={{margin : '0px 20px', maxHeight: '40px'}}>
@@ -74,7 +93,7 @@ export default function SidebarSeller() {
             src="/static/images/avatar/1.jpg"
             sx={{ width: 30, height: 30 }}
           />
-          <p style={{margin : '0', position: 'relative', top: '-30px', left : '-15px', fontSize: '20px'}}>Username</p>
+          <p style={{margin : '0', position: 'relative', top: '-30px', left : {xl : -15, lg : 10}, fontSize: '20px'}}>Username</p>
         </List>
         <Divider variant='middle'style={{backgroundColor : '#f5f5f5', marginBottom: '20px'}}/>
         <List>
@@ -83,7 +102,7 @@ export default function SidebarSeller() {
             sx={{
                 marginBottom: '20px',
                 backgroundColor : '#52D681',
-                width: '270px',
+                width: {xl : 270, lg : 180, sm : 170},
                 position: 'relative',
                 left: '15px',
                 borderRadius: '4px'
