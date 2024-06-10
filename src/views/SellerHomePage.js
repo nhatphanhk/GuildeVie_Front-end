@@ -10,8 +10,8 @@ import ListOfPosts from "../components/ListofPosts";
 import ListofIngredients from "../components/ListofIngredients";
 export default function SellerHomePage() {
   return (
-    <Grid container spacing={2} sx={{ flexGrow: 1 }}>
-      <Grid item xs={2} sx={{ position: "relative" }}>
+    <Grid container sx={{ flexGrow: 1 }}>
+      <Grid item xs={2} sx={{ position: "relative"}}>
         <SidebarSeller/>
       </Grid>
       <Grid item xs={10}>

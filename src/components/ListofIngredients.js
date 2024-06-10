@@ -10,7 +10,6 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import DeleteIcon from "@mui/icons-material/Delete";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import BlockIcon from '@mui/icons-material/Block';
@@ -35,6 +34,7 @@ const columns = [
     label: "Quantity",
     minWidth: 100,
     align: "center",
+    onClick : (value) => console.log(value.target.textContent)
   },
   {
     id: "importDate",
@@ -49,12 +49,13 @@ const columns = [
     minWidth: 50,
     align: "center",
     format: (value) => new Date(value).toLocaleDateString("vi-VI"),
+    onClick : (value) => console.log(value.target.textContent)
   },
   {
     id: "action",
     label: "Action",
     minWidth: 100,
-    align: "center",
+    align: "center"
   },
 ];
 
@@ -63,18 +64,18 @@ function createData(id, ingedientName, price, quantity, importDate, expiredDate,
 }
 
 const rows = [
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
-  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(1, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }}/> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(2, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(3, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(4, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(5, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(6, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(7, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(8, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(9, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(10, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(11, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
+  createData(12, "Golden Apple", 99.99, 10, "25-12-2023", "25-12-2024", <> {" "}<CheckBoxIcon style={{ color: "#6DF292" }} /> &nbsp; &nbsp; &nbsp; &nbsp;<BlockIcon style={{ color: "red" }} /></>),
 ];
 
 export default function ListofIngredients() {
@@ -136,7 +137,7 @@ export default function ListofIngredients() {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
-      <Paper sx={{ width: "90%", overflow: "hidden", boxShadow: 3 }}>
+      <Paper sx={{ width: "70vw", overflow: "hidden", boxShadow: 3 }}>
         <Search>
           <SearchIconWrapper>
             <SearchIcon />
@@ -176,7 +177,7 @@ export default function ListofIngredients() {
                       hover
                       role="checkbox"
                       tabIndex={-1}
-                      key={row.code}
+                      key={row.id}
                     >
                       {columns.map((column) => {
                         const value = row[column.id];
@@ -185,7 +186,8 @@ export default function ListofIngredients() {
                             key={column.id}
                             align={column.align}
                             style={{ color: "#015E44", fontSize: 16 }}
-                          >
+                            onClick={column.onClick}
+                            >
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
