@@ -24,6 +24,11 @@ function UserHomePage() {
             description: "Waffle is a type of baked cake, originating from Belgium",
             imageUrl: "https://i0.wp.com/smittenkitchen.com/wp-content/uploads/2023/03/easy-freezer-waffles-7-scaled.jpg?fit=1200%2C800&ssl=1&w=640" // Replace with your actual image path
         },
+        {
+            title: "Waffle",
+            description: "Waffle is a type of baked cake, originating from Belgium",
+            imageUrl: "https://www.cherryonmysundae.com/wp-content/uploads/2018/12/egg-onigiri-final-feature.jpg" // Replace with your actual image path
+        },
         // Add more items if needed
     ];
     const carousel2Items = [
@@ -32,6 +37,11 @@ function UserHomePage() {
             description: "Waffle is a type of baked cake, originating from Belgium",
             imageUrl: "https://www.cherryonmysundae.com/wp-content/uploads/2018/12/egg-onigiri-final-feature.jpg" // Replace with your actual image path
         },
+        {
+            title: "Waffle",
+            description: "Waffle is a type of baked cake, originating from Belgium",
+            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrtM3QR0_yud7C5Ab-pFu2EVbBCnNIjkYeSg&s" // Replace with your actual image path
+        },
         // Add more items if needed
     ];
     const carousel3Items = [
@@ -39,6 +49,11 @@ function UserHomePage() {
             title: "Waffle",
             description: "Waffle is a type of baked cake, originating from Belgium",
             imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrtM3QR0_yud7C5Ab-pFu2EVbBCnNIjkYeSg&s" // Replace with your actual image path
+        },
+        {
+            title: "Waffle",
+            description: "Waffle is a type of baked cake, originating from Belgium",
+            imageUrl: "https://www.cherryonmysundae.com/wp-content/uploads/2018/12/egg-onigiri-final-feature.jpg" // Replace with your actual image path
         },
         // Add more items if needed
     ];
@@ -166,7 +181,7 @@ function UserHomePage() {
                     <Grid container item xs={12} sm={6} md={6} sx={{ justifyContent: 'center', alignContent: 'center' }}>
                         <Typography variant="h5" sx={{ marginBottom: '0px', padding: '0px' }}>RECIPES</Typography>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={6} sx={{ padding: '0px' }}>
+                    <Grid item sx={{ margin: '0px', padding: '0px' }} sm={6} md={6}>
                         <Carousel carouselItems={carousel2Items} />
                     </Grid>
                     {isMobile ? (
@@ -175,7 +190,7 @@ function UserHomePage() {
                                 <Typography variant="h5" sx={{ margin: '8px', padding: '0px' }}>WRITE BLOGS</Typography>
                             </Grid>
                             <Grid item sx={{ margin: '0px', padding: '0px' }} xs={12}>
-                                <Carousel sx={{ margin: '0px'}}  carouselItems={carousel3Items} />
+                                <Carousel sx={{ margin: '0px' }} carouselItems={carousel3Items} />
                             </Grid>
 
                         </>

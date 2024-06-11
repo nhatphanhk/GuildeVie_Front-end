@@ -23,8 +23,23 @@ const Carousel = ({ carouselItems }) => {
   return (
     <Container maxWidth="md" style={{ position: 'relative', marginTop: '10px' }}>
       <Card style={{ position: 'relative' }}>
-        <CardMedia component="img" height="400" image={carouselItems[currentIndex].imageUrl} alt={carouselItems[currentIndex].title} />
-        <CardContent style={{ position: 'absolute', bottom: '20px', justifyContent:'center', backgroundColor: 'rgba(0, 0, 0, 0.01)', color: 'white' }}>
+        <CardMedia
+          component="img"
+          height="400"
+          image={carouselItems[currentIndex].imageUrl}
+          alt={carouselItems[currentIndex].title}
+        />
+        <CardContent
+          style={{
+            position: 'absolute',
+            bottom: '20px',
+            left: '0',
+            right: '0',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            color: 'white',
+            textAlign: 'center',
+          }}
+        >
           <Typography gutterBottom variant="h5" component="div">
             {carouselItems[currentIndex].title}
           </Typography>
@@ -33,7 +48,16 @@ const Carousel = ({ carouselItems }) => {
           </Typography>
         </CardContent>
       </Card>
-      <IconButton onClick={handlePrev} style={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', color: 'white', }}>
+      <IconButton
+        onClick={handlePrev}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '20px',
+          transform: 'translateY(-50%)',
+          color: 'white',
+        }}
+      >
         <ArrowBackIos />
       </IconButton>
       <IconButton
