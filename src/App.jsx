@@ -1,9 +1,14 @@
 import "./App.css";
 
+import BlogAboutLife from "./views/User/BlogAboutLife";
+import RecipePage from "./views/User/RecipePage";
+import TestBMIPage from "./views/User/TestBMIPage";
+
 function App() {
     return (
         <div className="App">
-            <header className="App-header">Hello world</header>
+        
+       <RecipePage/>
         </div>
     );
 }
