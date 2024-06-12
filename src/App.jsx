@@ -7,6 +7,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Footer from './components/Footer';
 import React from 'react';
 
+import BlogAboutLife from "./views/User/BlogAboutLife";
+import RecipePage from "./views/User/RecipePage";
+import TestBMIPage from "./views/User/TestBMIPage";
+
 function App() {
   return (
     <div className="App">
