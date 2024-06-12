@@ -2,9 +2,9 @@ import React from "react";
 
 import Grid from "@mui/material/Grid";
 import SidebarSeller from "~/components/SidebarSeller";
-import SellerMenuContent from "./sellerMenuContent/SellerMenuContent";
+import SellerMenuContent from "./SellerMenuContent/SellerMenuContent";
 import Box from "@mui/material/Box";
-import HeaderSeller from "~/components/sellers/HeaderSeller";
+import HeaderSeller from "~/components/Seller/HeaderSeller";
 
 
 export default function SellerMenuPage() {

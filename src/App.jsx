@@ -1,7 +1,7 @@
 import "./App.css"
 
 import React from 'react'
-import SellerMenuPage from "./views/sellers/sellerMenu/SellerMenuPage"
+import SellerMenuPage from "~/views/Seller/SellerMenu/SellerMenuPage";
 
 function App() {
   return (
