@@ -7,9 +7,10 @@ import BlogAboutLife from "./views/User/BlogAboutLife";
 import RecipePage from "./views/User/RecipePage";
 import TestBMIPage from "./views/User/TestBMIPage";
 
+
 function App() {
   return (
-    <Home />
+ < RecipePage/>
   );
 }
 
