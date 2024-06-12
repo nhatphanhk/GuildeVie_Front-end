@@ -14,7 +14,9 @@ const Footer = () => {
                 padding: '20px 0',
                 mt: 'auto',
                 backgroundColor: '#00AD7C',
-                color: 'white'
+                color: 'white',
+                position: 'relative',
+                top: '60px'
             }}
         >
             <Container maxWidth="lg">
@@ -58,21 +60,21 @@ const Footer = () => {
                     </Grid>
 
                     {/* Follow Us Section */}
-                    <Grid container direction="column" justifyContent="center" alignItems="flex-start" xs={12} sm={4} md={3}>
+                    <Grid item xs={12} sm={4} md={3}>
                         <Typography variant="h6" gutterBottom>
                             Follow Us
                         </Typography>
-                        <Grid container direction="column" justifyContent="center" alignItems="flex-start">
+                        <Box>
                             <IconButton href="https://facebook.com" target="_blank" color="inherit" sx={{ mr: 1 }}>
-                                <Facebook /> Facebook
+                                <Facebook />
                             </IconButton>
                             <IconButton href="https://twitter.com" target="_blank" color="inherit" sx={{ mr: 1 }}>
-                                <Twitter /> Twitter
+                                <Twitter />
                             </IconButton>
                             <IconButton href="https://instagram.com" target="_blank" color="inherit" sx={{ mr: 1 }}>
-                                <Instagram /> Instagram
+                                <Instagram />
                             </IconButton>
-                        </Grid>
+                        </Box>
                     </Grid>
                 </Grid>
                 <Box mt={4} textAlign="center">

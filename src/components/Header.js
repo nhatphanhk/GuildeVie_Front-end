@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Button, Box, Drawer, List, ListItem, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, IconButton, Button, Box, Drawer, List, ListItem, ListItemIcon, ListItemText, useMediaQuery, useTheme, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
@@ -7,6 +7,10 @@ import InfoIcon from '@mui/icons-material/Info';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import logo from '../assets/imgs/logo-bar@2x.png';
 import Grid from '@mui/material/Grid';
+
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
+    backgroundColor: '#00AD7C',
+}));
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     display: 'flex',
@@ -31,6 +35,33 @@ const NavLinks = styled(Box)(({ theme }) => ({
     },
 }));
 
+const DrawerContainer = styled(Box)(({ theme }) => ({
+    width: 250,
+    role: 'presentation',
+}));
+
+const DrawerGrid = styled(Grid)(({ theme }) => ({
+    padding: theme.spacing(2),
+}));
+
+const DrawerButton = styled(Button)(({ theme }) => ({
+    width: 100,
+    textTransform: 'none',
+    '& .MuiTypography-root': {
+        fontFamily: 'Roboto, sans-serif',
+    },
+}));
+
+const SignInButton = styled(Button)(({ theme }) => ({
+    width: 100,
+    backgroundColor: '#00AD7C',
+    color: 'white',
+    textTransform: 'none',
+    '& .MuiTypography-root': {
+        fontFamily: 'Roboto, sans-serif',
+    },
+}));
+
 const Header = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const theme = useTheme();
@@ -44,9 +75,7 @@ const Header = () => {
     };
 
     const list = () => (
-        <Box
-            sx={{ width: 250 }}
-            role="presentation"
+        <DrawerContainer
             onClick={toggleDrawer(false)}
             onKeyDown={toggleDrawer(false)}
         >
@@ -60,11 +89,11 @@ const Header = () => {
                     </ListItem>
                 ))}
             </List>
-        </Box>
+        </DrawerContainer>
     );
 
     return (
-        <AppBar position="fixed" sx={{ backgroundColor: '#00AD7C' }}>
+        <StyledAppBar position="fixed">
             <StyledToolbar>
                 <Grid container direction="row" justifyContent="space-between" alignItems="center">
                     <Grid item xs={3} md={1} sm={2}>
@@ -76,45 +105,57 @@ const Header = () => {
                         <Grid item xs={8} container justifyContent="center" alignItems="center">
                             <NavLinks>
                                 <Button color="inherit">
-                                    Home
+                                    <Typography variant="button" sx={{textTransform: 'none'}}>Home</Typography>
                                 </Button>
                                 <Button color="inherit">
-                                    Blogs
+                                    <Typography variant="button" sx={{textTransform: 'none'}}>Blogs</Typography>
                                 </Button>
                                 <Button color="inherit">
-                                    Recipes
+                                    <Typography variant="button" sx={{textTransform: 'none'}}>Recipes</Typography>
                                 </Button>
                                 <Button color="inherit">
-                                    Market
+                                    <Typography variant="button" sx={{textTransform: 'none'}}>Market</Typography>
                                 </Button>
                             </NavLinks>
                         </Grid>
                     )}
-                    <Grid item xs={1} md={1} sm={2}>
+                    <Grid item xs={1} md={1} sm={2} sx={{justifyItems:'center' }}>
                         {isMobile ? (
                             <IconButton color="inherit" onClick={toggleDrawer(true)}>
                                 <MenuIcon />
                             </IconButton>
                         ) : (
-                            <Button color="inherit" sx={{border: '2px solid white', backgroundColor: 'rgba(255, 255, 255, 0.3)'}}>Sign in</Button>
+                            <Button color="inherit" sx={{border: '2px solid white', backgroundColor: 'rgba(255, 255, 255, 0.3)'}}>
+                                <Typography variant="button" sx={{ fontFamily: 'Roboto, sans-serif'}}>Sign in</Typography>
+                            </Button>
                         )}
                         <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                            <Grid container direction="column" justifyContent="space-between" alignItems="stretch" sx={{ padding: 2 }}>
-                                <Grid item xs container direction="column" justifyContent="space-between" alignItems="stretch" sx={{ padding: 2 }}>
-                                    <Button sx={{ width: 100}} role="presentation" color="inherit">Home</Button>
-                                    <Button sx={{ width: 100}} role="presentation" color="inherit">Posts</Button>
-                                    <Button sx={{ width: 100}} role="presentation" color="inherit">Recipes</Button>
-                                    <Button sx={{ width: 100}} role="presentation" color="inherit">Market</Button>
-                                </Grid>
-                                <Grid item xs sx={{ padding: 2 }}>
-                                    <Button sx={{ width: 100, backgroundColor: '#00AD7C', color: 'white'}} role="presentation">Sign in</Button>
-                                </Grid>
-                            </Grid>
+                            <DrawerGrid container direction="column" justifyContent="space-between" alignItems="stretch">
+                                <DrawerGrid item xs container direction="column" justifyContent="space-between" alignItems="stretch">
+                                    <DrawerButton role="presentation" color="inherit">
+                                        <Typography>Home</Typography>
+                                    </DrawerButton>
+                                    <DrawerButton role="presentation" color="inherit">
+                                        <Typography>Posts</Typography>
+                                    </DrawerButton>
+                                    <DrawerButton role="presentation" color="inherit">
+                                        <Typography>Recipes</Typography>
+                                    </DrawerButton>
+                                    <DrawerButton role="presentation" color="inherit">
+                                        <Typography>Market</Typography>
+                                    </DrawerButton>
+                                </DrawerGrid>
+                                <DrawerGrid item xs>
+                                    <SignInButton role="presentation">
+                                        <Typography variant="button">Sign in</Typography>
+                                    </SignInButton>
+                                </DrawerGrid>
+                            </DrawerGrid>
                         </Drawer>
                     </Grid>
                 </Grid>
             </StyledToolbar>
-        </AppBar>
+        </StyledAppBar>
     );
 };
 
