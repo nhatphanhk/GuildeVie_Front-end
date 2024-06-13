@@ -1,126 +1,79 @@
-// src/Recipe.js
-import React, { useState } from "react";
-import {
-  Box,
-  Paper,
-  Typography,
-  MobileStepper,
-  IconButton,
-  TextField,
-  InputAdornment,
-} from "@mui/material";
-import {
-  KeyboardArrowLeft,
-  KeyboardArrowRight,
-  Search,
-} from "@mui/icons-material";
-import SwipeableViews from "react-swipeable-views";
+import React, { useState, useEffect } from 'react';
+import { Container, Card, CardContent, CardMedia, Typography, IconButton } from '@mui/material';
+import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 
-function Carousel() {
-  const tutorialSteps = [
-    {
-      imgPath: "src/assets/Img/0iguv13oraka1703493473386.png",
-    },
-    {
-      imgPath: "src/assets/Img/26_1.jpg",
-    },
-    {
-      imgPath:
-        "src/assets/Img/pad_thai__1__f7bd4f4931604756939e6ee41ec228d8.jpg",
-    },
-    {
-      imgPath: "src/assets/Img/suon-non-kho-nuoc-dua.jpg",
-    },
-  ];
+const Carousel = ({ carouselItems }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [activeStep, setActiveStep] = useState(0);
-  const [searchTerm, setSearchTerm] = useState("");
-  const maxSteps = tutorialSteps.length;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+    }, 3000); // Change slide every 3 seconds
+    return () => clearInterval(interval);
+  }, [carouselItems.length]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + carouselItems.length) % carouselItems.length);
+  };
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
   };
 
   return (
-    <Box sx={{ maxWidth: 1000, flexGrow: 1, m: "auto" }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          height: 50,
-          pl: 2,
-          bgcolor: "background.default",
+    <Container  style={{ position: 'relative', marginTop: '10px', width:"full" }}>
+      <Card style={{ position: 'relative' }}>
+        <CardMedia
+          component="img"
+          height="400"
+          image={carouselItems[currentIndex].imageUrl}
+          alt={carouselItems[currentIndex].title}
+        />
+        <CardContent
+          style={{
+            position: 'absolute',
+            bottom: '20px',
+            left: '0',
+            right: '0',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            color: 'white',
+            textAlign: 'center',
+          }}
+        >
+          <Typography gutterBottom variant="h5" component="div">
+            {carouselItems[currentIndex].title}
+          </Typography>
+          <Typography variant="body2">
+            {carouselItems[currentIndex].description}
+          </Typography>
+        </CardContent>
+      </Card>
+      <IconButton
+        onClick={handlePrev}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '20px',
+          transform: 'translateY(-50%)',
+          color: 'white',
         }}
       >
-        <Typography>{tutorialSteps[activeStep].label}</Typography>
-      </Paper>
-      <SwipeableViews
-        axis={"x"}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
+        <ArrowBackIos />
+      </IconButton>
+      <IconButton
+        onClick={handleNext}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '16px',
+          transform: 'translateY(-50%)',
+          color: 'white',
+        }}
       >
-        {tutorialSteps.map((step, index) => (
-          <div key={index}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 355,
-                  display: "block",
-                  maxWidth: 1000,
-                  overflow: "hidden",
-                  width: "100%",
-                  borderRadius: 4,
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </SwipeableViews>
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <IconButton
-            size="small"
-            onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
-          >
-            
-            <KeyboardArrowRight />
-          </IconButton>
-        }
-        backButton={
-          <IconButton
-            size="small"
-            onClick={handleBack}
-            disabled={activeStep === 0}
-          >
-            <KeyboardArrowLeft />
-            
-          </IconButton>
-        }
-      />
-    </Box>
+        <ArrowForwardIos />
+      </IconButton>
+    </Container>
   );
-}
+};
 
 export default Carousel;
