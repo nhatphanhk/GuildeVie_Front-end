@@ -13,34 +13,28 @@ import TableSeller from '~/components/Seller/TableSeller';
 const columns = [
   { id: "id", label: "ID", minWidth: 50, align: "center" },
   {
-    id: "dish_name",
-    label: "Dish Name",
+    id: "discount_name",
+    label: "Discount Name",
     align: "center",
     minWidth: 100,
   },
   {
-    id: "description",
-    label: "Description",
+    id: "discount_code",
+    label: "Discount Code",
     minWidth: 100,
     align: "center",
   },
   {
-    id: "category",
-    label: "Category",
+    id: "discount_amount",
+    label: "Discount Amount",
     minWidth: 100,
     align: "center",
   },
   {
-    id: "servings",
-    label: "Servings",
+    id: "expires",
+    label: "Expires",
     align: "center",
     minWidth: 50,
-  },
-  {
-    id: "tags",
-    label: "Tags",
-    minWidth: 50,
-    align: "center",
   },
   {
     id: "action",
@@ -50,26 +44,25 @@ const columns = [
   },
 ];
 
-function createData(id, dish_name, description, category, servings, tags) {
-  return { id, dish_name, description, category, servings, tags };
+function createData(id, discount_name, discount_code, discount_amount, expires) {
+  return { id, discount_name, discount_code, discount_amount, expires };
 }
 
 const initialRows = [
-  createData(1, "Cat Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(2, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(3, "Mouse Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(4, "Lion Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(5, "Fog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(6, "Vegetable", "Taste", "Dessert", "2", "Breakfast"),
-  createData(7, "Waifu", "Taste", "Dessert", "2", "Breakfast"),
-  createData(8, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(9, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(10, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(11, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(12, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
+  createData(1, "For Dog Meat", "Coupon", "100%", "Never"),
+  createData(2, "For All Meal", "Coupon", "100%", "Never"),
+  createData(3, "For All Meal", "Coupon", "100%", "Never"),
+  createData(4, "For All Meal", "Coupon", "100%", "Never"),
+  createData(5, "For All Meal", "Coupon", "100%", "Never"),
+  createData(6, "For All Meal", "Coupon", "100%", "Never"),
+  createData(7, "For All Meal", "Coupon", "100%", "Never"),
+  createData(8, "For All Meal", "Coupon", "100%", "Never"),
+  createData(9, "For All Meal", "Coupon", "100%", "Never"),
+  createData(10, "For All Meal", "Coupon", "100%", "Never"),
+  createData(11, "For All Meal", "Coupon", "100%", "Never"),
 ];
 
-export default function SellerMenuContent() {
+export default function SellerDiscountCodeContent() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [searchValue, setSearchValue] = React.useState("");
@@ -85,12 +78,12 @@ export default function SellerMenuContent() {
   };
 
   const filteredRows = rows.filter(row =>
-    row.dish_name.toLowerCase().includes(searchValue.toLowerCase())
+    row.discount_name.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const handleOnSubmit = () => {
     if (!searchValue) {
-      toast.error("Please enter dish name to search!");
+      toast.error("Please enter discount name to search!");
       return;
     }
   };
@@ -119,7 +112,7 @@ export default function SellerMenuContent() {
             <TextField
               fullWidth
               id="outlined-basic"
-              placeholder="Search by dish name!"
+              placeholder="Search by discount name!"
               variant="outlined"
               size="small"
               value={searchValue}
