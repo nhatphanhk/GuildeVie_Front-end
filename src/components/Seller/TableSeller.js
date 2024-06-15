@@ -9,6 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import { Box } from '@mui/material';
 import HandleApproveButton from '~/components/Seller/HandleApproveButton';
 import HandleDeleteButton from '~/components/Seller/HandleDeleteButton';
+import Chip from '@mui/material/Chip';
 
 export default function TableSeller({
   columns,
@@ -20,6 +21,20 @@ export default function TableSeller({
   filteredRows,
   onDelete
 }) {
+
+  const getChipColor = (status) => {
+    switch (status) {
+      case 'pending':
+        return 'primary'; // Or any other color you want for Pending
+      case 'resolved':
+        return 'success';
+      case 'unresolved':
+        return 'error';
+      default:
+        return 'default'; // Fallback color
+    }
+  };
+
   return (
     <Box p={1}>
       <TableContainer
@@ -66,7 +81,16 @@ export default function TableSeller({
                               <HandleDeleteButton id={row.id} onDelete={onDelete} />
                             </>
                           ) : (
-                            value
+                            <>
+                              {column.id === 'report_status' ? (
+                              <>
+                                <Chip size='small' label={value} color={getChipColor(value)} />
+                              </>
+                            ):(
+                              value
+                            )
+                            }
+                            </>
                           )}
                         </TableCell>
                       );

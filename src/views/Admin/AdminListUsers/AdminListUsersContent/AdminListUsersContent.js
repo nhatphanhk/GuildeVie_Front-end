@@ -13,32 +13,32 @@ import TableSeller from '~/components/Seller/TableSeller';
 const columns = [
   { id: "id", label: "ID", minWidth: 50, align: "center" },
   {
-    id: "dish_name",
-    label: "Dish Name",
+    id: "username",
+    label: "Username",
     align: "center",
     minWidth: 100,
   },
   {
-    id: "description",
-    label: "Description",
+    id: "fullname",
+    label: "Fullname",
     minWidth: 100,
     align: "center",
   },
   {
-    id: "category",
-    label: "Category",
+    id: "phone_number",
+    label: "Phone",
     minWidth: 100,
     align: "center",
   },
   {
-    id: "servings",
-    label: "Servings",
-    align: "center",
+    id: "dob",
+    label: "Date of birth",
     minWidth: 50,
+    align: "center",
   },
   {
-    id: "tags",
-    label: "Tags",
+    id: "user_role",
+    label: "Role",
     minWidth: 50,
     align: "center",
   },
@@ -50,26 +50,26 @@ const columns = [
   },
 ];
 
-function createData(id, dish_name, description, category, servings, tags) {
-  return { id, dish_name, description, category, servings, tags };
+function createData(id, username, fullname, phone_number, dob, user_role) {
+  return { id, username, fullname, phone_number, dob, user_role};
 }
 
 const initialRows = [
-  createData(1, "Cat Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(2, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(3, "Mouse Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(4, "Lion Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(5, "Fog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(6, "Vegetable", "Taste", "Dessert", "2", "Breakfast"),
-  createData(7, "Waifu", "Taste", "Dessert", "2", "Breakfast"),
-  createData(8, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(9, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(10, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(11, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(12, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
+  createData(1, "weeeebou", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(2, "enime", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(3, "Mouse Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(4, "Lion Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(5, "Fog Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(6, "Vegetable", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(7, "Waifu", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(8, "Dog Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(9, "Dog Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(10, "Dog Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(11, "Dog Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
+  createData(12, "Dog Meat", "Lê Hiếu", "0123459", "01/01/2001", "User"),
 ];
 
-export default function SellerMenuContent() {
+export default function AdminResolveReportsContent() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [searchValue, setSearchValue] = React.useState("");
@@ -85,12 +85,12 @@ export default function SellerMenuContent() {
   };
 
   const filteredRows = rows.filter(row =>
-    row.dish_name.toLowerCase().includes(searchValue.toLowerCase())
+    row.username.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const handleOnSubmit = () => {
     if (!searchValue) {
-      toast.error("Please enter dish name to search!");
+      toast.error("Please enter username to search!");
       return;
     }
   };
@@ -119,7 +119,7 @@ export default function SellerMenuContent() {
             <TextField
               fullWidth
               id="outlined-basic"
-              placeholder="Search by dish name!"
+              placeholder="Search by username!"
               variant="outlined"
               size="small"
               value={searchValue}

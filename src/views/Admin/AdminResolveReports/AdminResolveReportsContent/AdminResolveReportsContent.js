@@ -13,32 +13,32 @@ import TableSeller from '~/components/Seller/TableSeller';
 const columns = [
   { id: "id", label: "ID", minWidth: 50, align: "center" },
   {
-    id: "dish_name",
-    label: "Dish Name",
+    id: "report_title",
+    label: "Report",
     align: "center",
     minWidth: 100,
   },
   {
-    id: "description",
-    label: "Description",
+    id: "date_init",
+    label: "Date",
     minWidth: 100,
     align: "center",
   },
   {
-    id: "category",
-    label: "Category",
+    id: "user_name",
+    label: "Username",
     minWidth: 100,
     align: "center",
   },
   {
-    id: "servings",
-    label: "Servings",
-    align: "center",
+    id: "user_email",
+    label: "Email",
     minWidth: 50,
+    align: "center",
   },
   {
-    id: "tags",
-    label: "Tags",
+    id: "report_status",
+    label: "Status",
     minWidth: 50,
     align: "center",
   },
@@ -50,26 +50,26 @@ const columns = [
   },
 ];
 
-function createData(id, dish_name, description, category, servings, tags) {
-  return { id, dish_name, description, category, servings, tags };
+function createData(id, report_title, date_init, user_name, user_email, report_status) {
+  return { id, report_title, date_init, user_name, user_email, report_status};
 }
 
 const initialRows = [
-  createData(1, "Cat Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(2, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(3, "Mouse Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(4, "Lion Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(5, "Fog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(6, "Vegetable", "Taste", "Dessert", "2", "Breakfast"),
-  createData(7, "Waifu", "Taste", "Dessert", "2", "Breakfast"),
-  createData(8, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(9, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(10, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(11, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
-  createData(12, "Dog Meat", "Taste", "Dessert", "2", "Breakfast"),
+  createData(1, "Rob", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(2, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "resolved"),
+  createData(3, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "unresolved"),
+  createData(4, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(5, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(6, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(7, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(8, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(9, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(10, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(11, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending"),
+  createData(12, "Shop like s***", "01/01/2024", "Văn Hải", "hai123@.com.anipen", "pending")
 ];
 
-export default function SellerMenuContent() {
+export default function AdminResolveReportsContent() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [searchValue, setSearchValue] = React.useState("");
@@ -85,12 +85,12 @@ export default function SellerMenuContent() {
   };
 
   const filteredRows = rows.filter(row =>
-    row.dish_name.toLowerCase().includes(searchValue.toLowerCase())
+    row.report_title.toLowerCase().includes(searchValue.toLowerCase())
   );
 
   const handleOnSubmit = () => {
     if (!searchValue) {
-      toast.error("Please enter dish name to search!");
+      toast.error("Please enter report to search!");
       return;
     }
   };
@@ -119,7 +119,7 @@ export default function SellerMenuContent() {
             <TextField
               fullWidth
               id="outlined-basic"
-              placeholder="Search by dish name!"
+              placeholder="Search by report name!"
               variant="outlined"
               size="small"
               value={searchValue}
