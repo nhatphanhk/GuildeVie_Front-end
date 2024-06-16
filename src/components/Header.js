@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import logo from '../assets/imgs/logo-bar@2x.png';
+import logo from '../assets/logo-bar@2x.png';
 import Grid from '@mui/material/Grid';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
