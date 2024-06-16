@@ -1,10 +1,10 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Button, Box, List, ListItem, ListItemIcon, ListItemText, useMediaQuery, useTheme, Typography } from '@mui/material';
-import { Container, Paper, Card, CardContent, CardMedia } from '@mui/material';
+import { Button, Box, useMediaQuery, useTheme, Typography } from '@mui/material';
+import { Container, Card} from '@mui/material';
 import { styled } from '@mui/system';
 import logo from '../../assets/imgs/logo@2x.png';
 import Grid from '@mui/material/Grid';
-import Header from '../../components/Header';
+import Header from '../../components/User/Header';
 import Footer from '../../components/Footer';
 import Carousel from '../../components/Carosel';
 
