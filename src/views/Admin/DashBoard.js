@@ -104,7 +104,7 @@ export default function Dashboard() {
           </Menu>
         </Toolbar>
       </AppBarStyled>
-      <Box sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)', margin: '10px' }}>
+      <Box sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)', margin: '10px', backgroundColor:'#fff' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2 }}>
           <Grid container direction="row" justifyContent="center" alignItems="center"  >
             <Grid item xs={3} >
@@ -112,7 +112,7 @@ export default function Dashboard() {
                 <CardContentStyled>
                   <Grid container direction="row" justifyContent="center" alignItems="center">
                     <Grid item xs={3} container justifyContent="center">
-                      <CardIcon sx={{ backgroundColor: '#00CA92', }}>
+                      <CardIcon sx={{ backgroundColor: '#00CA92'}}>
                         <PeopleIcon />
                       </CardIcon>
                     </Grid>

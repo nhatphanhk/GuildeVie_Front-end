@@ -7,12 +7,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { styled } from '@mui/system';
 
 const StyledAvatar = styled(Box)({
-  backgroundImage: 'url(https://www.cherryonmysundae.com/wp-content/uploads/2018/12/egg-onigiri-final-feature.jpg)',
+  backgroundImage: 'url(https://cdn.alongwalk.info/vn/wp-content/uploads/2022/10/14054104/image-100-y-tuong-avatar-cute-doc-dao-an-tuong-nhat-cho-ban-166567566414594.jpg)',
   width: 300,
   height: 300,
   backgroundSize: 'contain',
   position: 'relative',
-  cursor: 'pointer',
+  // cursor: 'pointer',
+  border: '3px solid',
+  borderColor:'#015E44',
   '&:hover .camera-overlay': {
     opacity: 1,
   },
@@ -80,6 +82,10 @@ const ProfileUpdate = () => {
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
   const years = Array.from({ length: 100 }, (_, i) => new Date().getFullYear() - i);
   const name = "Le Ngoc Hieu";
+  const username = "Lee Hieu";
+  const phoneNumber = "0919283749";
+  const email = "hiueln@gmail.com";
+  const detailAddress = "39, Yersin"
 
   const handleDayChange = (event) => {
     setDay(event.target.value);
@@ -124,13 +130,13 @@ const ProfileUpdate = () => {
   const idAccount = openAccount ? 'account-popover' : undefined;
 
   return (
-    <Box sx={{ backgroundColor: '#fff', height: '100vh' }}>
+    <Box sx={{ backgroundColor: '#F4FFEC', height: '100vh', color:'#fff' }}>
       <AppBar position="static" sx={{ backgroundColor: '#fff', boxShadow: 'none' }}>
         <Toolbar>
           <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
             <Grid item xs={6}>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: '#00AD7C' }} >
-                Profile
+              <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: '#00AD7C', fontWeight: 'bold' }} >
+                PROFILE
               </Typography>
             </Grid>
             <Grid item xs={6}>
@@ -139,7 +145,7 @@ const ProfileUpdate = () => {
               </Typography>
             </Grid>
           </Grid>
-          <IconButton onClick={handleNotificationClick} size="large">
+          <IconButton onClick={handleNotificationClick} size="large" sx={{borderRadius:'4px', boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.2)', margin:' 0px 10px'}}>
             <NotificationsIcon />
           </IconButton>
           <Popover
@@ -161,18 +167,11 @@ const ProfileUpdate = () => {
               {/* Thêm nội dung của popover thông báo ở đây */}
             </Box>
           </Popover>
-          <IconButton onClick={handleChatClick} size="large">
+          <IconButton onClick={handleChatClick} size="large" sx={{borderRadius:'4px', boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.2)', margin:' 0px 10px'}}>
             <ChatIcon />
           </IconButton>
-          <Popover
-            id={idChat}
-            open={openChat}
-            anchorEl={anchorElChat}
-            onClose={handlePopoverCloseChat}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
+          <Popover id={idChat} open={openChat} anchorEl={anchorElChat} onClose={handlePopoverCloseChat} 
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center'}}
             transformOrigin={{
               vertical: 'top',
               horizontal: 'center',
@@ -183,7 +182,7 @@ const ProfileUpdate = () => {
               {/* Thêm nội dung của popover chat ở đây */}
             </Box>
           </Popover>
-          <IconButton onClick={handleAccountClick} size="large">
+          <IconButton onClick={handleAccountClick} size="large" sx={{borderRadius:'4px', boxShadow: '0px 4px 5px rgba(0, 0, 0, 0.2)', margin:' 0px 10px'}}>
             <AccountCircleIcon />
           </IconButton>
           <Popover
@@ -200,7 +199,7 @@ const ProfileUpdate = () => {
               horizontal: 'center',
             }}
           >
-            <Box sx={{ p: 2 }}>
+            <Box sx={{ p: 2 }} align="center">
               <Typography variant="h6">Account</Typography>
               <Avatar />
               <Button variant="contained" color="primary" sx={{ mt: 2 }}>
@@ -210,7 +209,7 @@ const ProfileUpdate = () => {
           </Popover>
         </Toolbar>
       </AppBar>
-      <Box sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)', margin: '10px' }}>
+      <Box sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)', margin: '10px',backgroundColor:'#fff' }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Box position="relative">
@@ -226,19 +225,18 @@ const ProfileUpdate = () => {
               January 1, 2023
             </Typography>
             <Typography variant="h3" gutterBottom>
-              Full Name
+              {name}
             </Typography>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <TextField fullWidth label="Username" placeholder="user123" variant="outlined" margin="dense" />
+              <TextField fullWidth label={username} placeholder="user123" variant="outlined" margin="dense" />
               <TextField fullWidth label={name} placeholder="John Doe" variant="outlined" margin="dense" />
-              <TextField fullWidth label="Phone Number" placeholder="123-456-7890" variant="outlined" margin="dense" />
-              <TextField fullWidth label="E-mail" placeholder="user@example.com" variant="outlined" margin="dense" />
-              <TextField fullWidth label="Detail Address" placeholder="123 Main St" variant="outlined" margin="dense" />
-              <TextField fullWidth label="Address" placeholder="Apt 1B" variant="outlined" margin="dense" />
+              <TextField fullWidth label={phoneNumber} placeholder="123-456-7890" variant="outlined" margin="dense" />
+              <TextField fullWidth label={email} placeholder="user@example.com" variant="outlined" margin="dense" />
+              <TextField fullWidth label={detailAddress} placeholder="123 Main St" variant="outlined" margin="dense" />
 
               <Grid container direction="row" justifyContent="space-between" alignItems="center" >
                 <Grid item xs={4}>
-                  <InputLabel id="ward-label">Ward</InputLabel>
+                  <InputLabel id="ward-label" sx={{color:'#015E44'}}>Ward</InputLabel>
                   <Select labelId="ward-label" id="ward" value={ward} onChange={handleWardChange} input={<OutlinedInput id="ward-placeholder" />}
                     sx={{ width: '95%' }}>
                     {wards.map((ward) => (
@@ -249,7 +247,7 @@ const ProfileUpdate = () => {
                   </Select>
                 </Grid>
                 <Grid item xs={4}>
-                  <InputLabel id="district-label">District</InputLabel>
+                  <InputLabel id="district-label" sx={{color:'#015E44'}}>District</InputLabel>
                   <Select labelId="district-label" id="district" value={district} onChange={handleDistrictChange} input={<OutlinedInput id="district-placeholder" />}
                     sx={{ width: '95%', left:"7px"  }}>
                     {districts.map((district) => (
@@ -260,7 +258,7 @@ const ProfileUpdate = () => {
                   </Select>
                 </Grid>
                 <Grid item xs={4}>
-                  <InputLabel id="province-label">Province</InputLabel>
+                  <InputLabel id="province-label" sx={{color:'#015E44'}}>Province</InputLabel>
                   <Select labelId="province-label" id="province" value={province} onChange={handleProvinceChange} input={<OutlinedInput id="province-placeholder" />}
                     sx={{ width: '95%', padding: '0px 10px', left:"14px"  }}>
                     {provinces.map((province) => (
@@ -274,7 +272,7 @@ const ProfileUpdate = () => {
 
               <Grid container direction="row" justifyContent="space-between" alignItems="center" >
                 <Grid item xs={4}>
-                  <InputLabel id="day-label">Day</InputLabel>
+                  <InputLabel id="day-label" sx={{color:'#015E44'}}>Day</InputLabel>
                   <Select labelId="day-label" id="day" value={day} onChange={handleDayChange} input={<OutlinedInput id="day-placeholder"
                     sx={{ width: '95%' }} />}>
                     <MenuItem value="">
@@ -288,7 +286,7 @@ const ProfileUpdate = () => {
                   </Select>
                 </Grid>
                 <Grid item xs={4}>
-                  <InputLabel id="month-label">Month</InputLabel>
+                  <InputLabel id="month-label" sx={{color:'#015E44'}}>Month</InputLabel>
                   <Select labelId="month-label" id="month" value={month} onChange={handleMonthChange} input={<OutlinedInput id="month-placeholder"
                     sx={{ width: '95%', left:"7px"  }} />} >
                     <MenuItem value="">
@@ -302,7 +300,7 @@ const ProfileUpdate = () => {
                   </Select>
                 </Grid>
                 <Grid item xs={4}>
-                  <InputLabel id="year-label">Year</InputLabel>
+                  <InputLabel id="year-label" sx={{color:'#015E44'}}>Year</InputLabel>
                   <Select labelId="year-label" id="year" value={year} onChange={handleYearChange} input={<OutlinedInput id="year-placeholder" />}
                     sx={{ width: '95%', left:"14px" }} >
                     <MenuItem value="">
