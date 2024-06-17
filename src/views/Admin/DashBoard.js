@@ -156,7 +156,7 @@ export default function Dashboard() {
                 <CardContentStyled>
                   <Grid container direction="row" justifyContent="center" alignItems="center">
                     <Grid item xs={3} container justifyContent="center">
-                      <CardIcon sx={{ backgroundColor: '#63B967', }}>
+                      <CardIcon sx={{ backgroundColor: '#63B967'}}>
                         <ReceiptIcon />
                       </CardIcon>
                     </Grid>
@@ -167,7 +167,7 @@ export default function Dashboard() {
                       </Box>
                     </Grid>
                     <Grid item xs={12} >
-                      <Typography variant="body2">Number of new recipes</Typography>
+                      <Typography variant="body2" >Number of new recipes</Typography>
                     </Grid>
                   </Grid>
                 </CardContentStyled>
@@ -199,7 +199,7 @@ export default function Dashboard() {
         </Box>
 
         <Box sx={{ mt: 4, px: 2 }}>
-          <Typography variant="h6" sx={{margin:' 15px 0px'}}>Last 6 months</Typography>
+          <Typography variant="h6" sx={{margin:' 15px 0px', color:'rgba(1, 94, 68, 0.5)', fontWeight:'bold'}}>Last 6 months</Typography>
           <Box sx={{ borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)' }}>
           <LineChart 
             xAxis={[{ data: month }]}
@@ -219,29 +219,29 @@ export default function Dashboard() {
         </Box>
 
         <Box sx={{ mt: 4, px: 2 }}>
-          <Typography variant="h6">Last transitions</Typography>
-          <Table sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)', margin: '10px', justifyContent: "center" }}>
-            <TableHead>
+          <Typography variant="h6" sx={{color:'rgba(1, 94, 68, 0.5)', fontWeight:'bold'}}>Last transitions</Typography>
+          <Table sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.2)', margin: '10px', justifyContent: "center",color:'#015E44'  }}>
+            <TableHead sx={{color:'#015E44'}}>
               <TableRow>
-                <TableCell align="center">Trans Id</TableCell>
-                <TableCell align="center">User</TableCell>
-                <TableCell align="center">Seller</TableCell>
-                <TableCell align="center">Product</TableCell>
-                <TableCell align="center">Amount</TableCell>
-                <TableCell align="center">Price</TableCell>
-                <TableCell align="center">Status</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>Trans Id</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>User</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>Seller</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>Product</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>Amount</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>Price</TableCell>
+                <TableCell align="center" sx={{color:'#015E44'}}>Status</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {Array.from(Array(7).keys()).map((index) => (
                 <TableRow key={index}>
-                  <TableCell align="center">#{index + 1}</TableCell>
-                  <TableCell align="center">User {index + 1}</TableCell>
-                  <TableCell align="center">Seller {index + 1}</TableCell>
-                  <TableCell align="center">Product {index + 1}</TableCell>
-                  <TableCell align="center">{Math.floor(Math.random() * 100)}</TableCell>
-                  <TableCell align="center">{Math.floor(Math.random() * 1000)}</TableCell>
-                  <TableCell align="center">{index % 2 === 0 ? 'Completed' : 'Pending'}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>#{index + 1}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>User {index + 1}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>Seller {index + 1}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>Product {index + 1}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>{Math.floor(Math.random() * 100)}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>{Math.floor(Math.random() * 1000)}</TableCell>
+                  <TableCell align="center" sx={{color:'#015E44'}}>{index % 2 === 0 ? 'Completed' : 'Pending'}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

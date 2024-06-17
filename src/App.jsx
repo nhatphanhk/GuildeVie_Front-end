@@ -12,7 +12,7 @@ function App() {
         <SidebarSeller />
       </Grid>
       <Grid item xs={9} sx={{position: "static"}}>
-        <Profile />
+        <Dashboard />
       </Grid>
     </Grid>
   );
