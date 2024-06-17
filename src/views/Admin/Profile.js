@@ -209,7 +209,7 @@ const ProfileUpdate = () => {
           </Popover>
         </Toolbar>
       </AppBar>
-      <Box sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)', margin: '10px',backgroundColor:'#fff' }}>
+      <Box sx={{ p: 3, borderRadius: '9px', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.3)', margin: '10px',backgroundColor:'#fff', color:'#015E44' }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} md={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Box position="relative">
