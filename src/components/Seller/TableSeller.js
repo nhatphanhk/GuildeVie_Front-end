@@ -73,7 +73,7 @@ export default function TableSeller({
                         <TableCell
                           key={column.id}
                           align={column.align}
-                          style={{ color: '#015E44', fontSize: 16 }}
+                          style={{ color: '#015E44', fontSize: 16 ,textOverflow : 'ellipsis', overflow: 'hidden' , whiteSpace : 'nowrap', maxWidth: 300,}}
                         >
                           {column.id === 'action' ? (
                             <>
