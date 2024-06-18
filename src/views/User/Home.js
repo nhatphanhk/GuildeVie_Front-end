@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Box, useMediaQuery, useTheme, Typography } from '@mui/material';
 import { Container, Card} from '@mui/material';
 import { styled } from '@mui/system';
-import logo from '../../assets/imgs/logo@2x.png';
+import logo from '../../assets/Img/logo@2x.png';
 import Grid from '@mui/material/Grid';
 import Header from '../../components/User/Header';
 import Footer from '../../components/Footer';

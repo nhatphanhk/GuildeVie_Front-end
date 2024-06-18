@@ -13,7 +13,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import ReportIcon from '@mui/icons-material/Report';
 import Avatar from '@mui/material/Avatar';
-import myImage from '../assets/logo-bar@2x.png';
+import myImage from '../assets/Img/logo-bar@2x.png';
 import { Grid } from '@mui/material';
 
 export default function SidebarSeller() {
