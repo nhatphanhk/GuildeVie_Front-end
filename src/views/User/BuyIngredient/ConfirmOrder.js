@@ -107,13 +107,13 @@ const ConfirmOrder = () => {
 
                     {/* Right Side - 1/3 */}
                     <Grid item xs={12} md={4}>
-                        <Paper elevation={3} sx={{ p: 3 }}>
+                        <Paper elevation={3} sx={{ p: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
                             <TextField
                                 fullWidth
                                 label="Order Note"
                                 variant="outlined"
                                 multiline
-                                rows={5}
+                                rows={4}
                                 value={note}
                                 onChange={(e) => setNote(e.target.value)}
                                 sx={{ mb: 2 }}
@@ -129,14 +129,14 @@ const ConfirmOrder = () => {
                                     <MenuItem value="express">Express</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Typography variant="body1" sx={{ mb: 2 }}>
+                            <Typography variant="body1" sx={{ mb: 1 }}>
                                 Estimated Delivery Date: {estimatedDeliveryDate.toDateString()}
                             </Typography>
-                            <Typography variant="h6" sx={{ mb: 2 }}>
+                            <Typography variant="h6" sx={{ mb: 1 }}>
                                 Total: ${totalPrice.toFixed(2)}
                             </Typography>
-                            <Button variant="contained" color="primary" sx={{ bgcolor: '#00AD7C', float: 'right' }}>
-                                Payment
+                            <Button variant="contained" color="primary" sx={{ bgcolor: '#00AD7C', mt: 'auto' }}>
+                                Order
                             </Button>
                         </Paper>
                     </Grid>

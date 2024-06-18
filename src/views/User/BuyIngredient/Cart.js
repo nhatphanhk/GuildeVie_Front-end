@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-import ingreImage3 from '../../../assets/Img/26_1.jpg';
+import ingreImage3 from '../../../assets/images/ingre5.jpg';
 
 const ingredientsData = [
     { id: 1, name: 'Ingredient 1', unit: '100 Gram', price: 30, originalPrice: 40, image: ingreImage3 },
@@ -44,6 +44,15 @@ const Cart = () => {
         );
     };
 
+    const handleSelectAllChange = (event) => {
+        setIngredients(prevIngredients =>
+            prevIngredients.map(ingredient => ({
+                ...ingredient,
+                checked: event.target.checked,
+            }))
+        );
+    };
+
     const handleApplyDiscount = () => {
         if (discountCode.trim() === 'DISCOUNT10') {
             setDiscountApplied(true);
@@ -58,6 +67,9 @@ const Cart = () => {
 
     const discountedTotalPrice = discountApplied ? totalPrice * 0.9 : totalPrice;
 
+    const allChecked = ingredients.every(ingredient => ingredient.checked);
+    const someChecked = ingredients.some(ingredient => ingredient.checked);
+
     return (
         <Box>
             {/* Banner */}
@@ -67,29 +79,30 @@ const Cart = () => {
             <br />
             <Container maxWidth="lg">
                 <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-                    <Box flex={1} />
-                    <Box display="flex" alignItems="center" flex={1} justifyContent="center">
-                        <TextField
-                            label="Discount Code"
-                            variant="outlined"
-                            value={discountCode}
-                            onChange={(e) => setDiscountCode(e.target.value)}
-                            sx={{ marginRight: 2 }}
-                        />
-                        <Button variant="contained" color="primary" onClick={handleApplyDiscount} sx={{ bgcolor: '#00AD7C' }}>
-                            Apply
-                        </Button>
+                    <Box flex={1}>
+                        <Typography variant="h3" gutterBottom sx={{ color: '#00AD7C' }}>
+                            Cart
+                        </Typography>
                     </Box>
-                    <Box flex={1} display="flex" justifyContent="flex-end">
-                        <IconButton color="primary" aria-label="cart">
+                    <Box display="flex" alignItems="center" flex={1} justifyContent="flex-end">
+                        <IconButton color="primary" aria-label="cart" sx={{ color: '#00AD7C' }}>
                             <ShoppingCartIcon sx={{ fontSize: 40 }} />
                         </IconButton>
                     </Box>
                 </Box>
-                <Typography variant="h3" gutterBottom>
-                    Cart
-                </Typography>
                 <Grid container spacing={4} direction="column">
+                    <Grid item xs={12}>
+                        <Box display="flex" alignItems="center">
+                            <Checkbox
+                                checked={allChecked}
+                                indeterminate={someChecked && !allChecked}
+                                onChange={handleSelectAllChange}
+                            />
+                            <Typography variant="body2" sx={{ fontSize: '1.4rem' }}>
+                                Select All
+                            </Typography>
+                        </Box>
+                    </Grid>
                     {ingredients.map(ingredient => (
                         <Grid item xs={12} key={ingredient.id}>
                             <Paper elevation={3} sx={{ display: 'flex', alignItems: 'center', p: 2 }}>
@@ -133,6 +146,19 @@ const Cart = () => {
                     <Typography variant="h5" sx={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#00AD7C' }}>
                         Total: ${discountedTotalPrice.toFixed(2)}
                     </Typography>
+                    <Box display="flex" alignItems="center">
+                        <TextField
+                            label="Discount Code"
+                            variant="outlined"
+                            value={discountCode}
+                            onChange={(e) => setDiscountCode(e.target.value)}
+                            size="small"
+                            sx={{ marginRight: 2, flex: 1 }}
+                        />
+                        <Button variant="contained" color="primary" onClick={handleApplyDiscount} sx={{ bgcolor: '#00AD7C', flex: 1 }}>
+                            Apply
+                        </Button>
+                    </Box>
                     <Button variant="contained" color="primary" sx={{ bgcolor: '#00AD7C', fontSize: '1.2rem' }}>
                         Order
                     </Button>

@@ -6,7 +6,7 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-import ingreImage3 from '.../../../assets/Img/26_1.jpg';
+import ingreImage3 from '../../../assets/images/ingre5.jpg';
 
 const IngredientDetail = () => {
     const [timeLeft, setTimeLeft] = useState(43200); // 12 hours in seconds
@@ -49,10 +49,10 @@ const IngredientDetail = () => {
             <br />
             <Container maxWidth="lg">
                 <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-                    <Typography variant="h3" gutterBottom>
+                    <Typography variant="h3" gutterBottom sx={{ color: '#00AD7C' }}>
                         Details
                     </Typography>
-                    <IconButton color="primary" aria-label="shopping cart" sx={{ fontSize: 40 }}>
+                    <IconButton color="primary" aria-label="shopping cart" sx={{ fontSize: 40, color: '#00AD7C' }}>
                         <ShoppingCartIcon sx={{ fontSize: 40 }} />
                     </IconButton>
                 </Box>
@@ -122,7 +122,7 @@ const IngredientDetail = () => {
                                         <RemoveIcon />
                                     </IconButton>
                                     <Typography variant="body2" color="textSecondary" sx={{ mx: 1 }}>
-                                        Quantity: {quantity}
+                                        {quantity}
                                     </Typography>
                                     <IconButton aria-label="increase quantity" onClick={increaseQuantity} sx={{ color: '#00AD7C' }}>
                                         <AddIcon />
@@ -130,15 +130,15 @@ const IngredientDetail = () => {
                                 </Box>
 
                                 <Grid container spacing={2} mt={2} justifyContent="space-between">
-                                    <Grid item xs={6}>
+                                    <Grid item xs={5}>
                                         <Button variant="contained" color="primary" sx={{ width: '100%', bgcolor: '#00AD7C' }}>
                                             Buy
                                         </Button>
                                     </Grid>
-                                    <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <IconButton color="primary" aria-label="add to shopping cart" sx={{ color: '#00AD7C' }}>
+                                    <Grid item xs={5}>
+                                        <Button variant="outlined" color="primary" sx={{ width: '100%', borderColor: '#00AD7C', color: '#00AD7C' }}>
                                             <AddShoppingCartIcon sx={{ fontSize: 30 }} />
-                                        </IconButton>
+                                        </Button>
                                     </Grid>
                                 </Grid>
                             </Box>

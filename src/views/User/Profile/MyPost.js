@@ -4,8 +4,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CommentIcon from '@mui/icons-material/Comment';
 
-import profilePic from '../../../assets/Img/26_1.jpg';
-import postImage from '../../../assets/Img/26_1.jpg';
+import profilePic from '../../../assets/images/ingre5.jpg';
+import postImage from '../../../assets/images/ingre5.jpg';
 
 const blogPostsData = [
     {

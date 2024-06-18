@@ -4,7 +4,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import EditIcon from '@mui/icons-material/Edit';
 
-import profilePic from '../../../assets/Img/26_1.jpg';
+import profilePic from '../../../assets/images/ingre5.jpg';
 
 const ResetMyPassword = () => {
     const menuOptions = [
