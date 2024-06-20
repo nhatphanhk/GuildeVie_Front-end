@@ -7,8 +7,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import { Button, Typography } from "@mui/material";
-import TableSeller from '~/components/Seller/TableSeller';
+import BodyListOfBuyer from '~/components/Seller/BodyListOfBuyer';
 
 const columns = [
   { id: "id", label: "ID", minWidth: 50, align: "center" },
@@ -123,7 +122,7 @@ export default function SellerMenuContent() {
     setRows((prevRows) => prevRows.filter((row) => row.id !== id));
     console.log(`Deleted row with id: ${id}`);
   }
-
+  
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
       <Paper
@@ -181,28 +180,10 @@ export default function SellerMenuContent() {
               }}
             />
           </Box>
-          <Box>
-            <Button
-              size="large"
-              variant="outlined"
-              sx={{
-                color: "#015E44",
-                borderColor: "#015E44",
-                borderWidth: 1,
-                "&:hover": {
-                  borderColor: "#015E44",
-                },
-              }}
-            >
-              <Typography variant="h7" sx={{ fontWeight: "bolder" }}>
-                Create New
-              </Typography>
-            </Button>
-          </Box>
         </Box>
 
         {/* Table */}
-        <TableSeller
+        <BodyListOfBuyer
           columns={columns}
           rows={rows}
           page={page}
