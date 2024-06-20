@@ -8,7 +8,8 @@ import { toast } from "react-toastify";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
-import TableSeller from '~/components/Seller/TableSeller';
+import BodyListOfIngredient from '~/components/Seller/BodyListOfIngredients';
+import AddIngredientModal from "./AddIngredientModal";
 
 const columns = [
   { id: "id", label: "ID", minWidth: 50, align: "center" },
@@ -113,6 +114,9 @@ export default function SellerMenuContent() {
     setRows((prevRows) => prevRows.filter((row) => row.id !== id));
     console.log(`Deleted row with id: ${id}`);
   }
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div style={{ display: "flex", justifyContent: "center", marginTop: 10 }}>
@@ -183,16 +187,18 @@ export default function SellerMenuContent() {
                   borderColor: "#015E44",
                 },
               }}
+              onClick={handleOpen}
             >
               <Typography variant="h7" sx={{ fontWeight: "bolder" }}>
                 Create New
               </Typography>
             </Button>
+            <AddIngredientModal open={open} handleClose={handleClose}/>
           </Box>
         </Box>
 
         {/* Table */}
-        <TableSeller
+        <BodyListOfIngredient
           columns={columns}
           rows={rows}
           page={page}
@@ -201,6 +207,9 @@ export default function SellerMenuContent() {
           handleChangeRowsPerPage={handleChangeRowsPerPage}
           filteredRows={filteredRows}
           onDelete={onDelete}
+          handleOpen={handleOpen}
+          handleClose={handleClose}
+          open={open}
         />
       </Paper>
     </div>
