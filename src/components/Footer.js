@@ -2,7 +2,7 @@
 import React from 'react';
 import { Box, Typography, Container, Link, Grid, IconButton } from '@mui/material';
 import { Facebook, Twitter, Instagram } from '@mui/icons-material';
-import logo from '../assets/logo-bar@2x.png';
+import logo from '../assets/Img/logo-bar@2x.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
