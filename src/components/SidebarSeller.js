@@ -14,7 +14,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import ReportIcon from '@mui/icons-material/Report';
 import Avatar from '@mui/material/Avatar';
 import SettingsIcon from '@mui/icons-material/Settings';
-import myImage from '../assets/logo-bar@2x.png';
+import myImage from '../assets/Img/logo-bar@2x.png';
 
 
 export default function SidebarSeller() {

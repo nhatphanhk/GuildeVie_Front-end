@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -6,12 +6,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { Box } from "@mui/material";
-import HandleApproveButton from "~/components/Seller/HandleApproveButton";
+import { Box, Button } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
 import HandleDeleteButton from "~/components/Seller/HandleDeleteButton";
-import Chip from "@mui/material/Chip";
+import DetailModal from "./DetailBuyerModal";
 
-export default function TableSeller({
+export default function BodyListOfBuyer({
   columns,
   rows,
   page,
@@ -21,24 +21,25 @@ export default function TableSeller({
   filteredRows,
   onDelete
 }) {
-  const getChipColor = (status) => {
-    switch (status) {
-      case "pending":
-        return "primary"; // Or any other color you want for Pending
-      case "resolved":
-        return "success";
-      case "unresolved":
-        return "error";
-      default:
-        return "default"; // Fallback color
-    }
+
+  const [open, setOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(null);
+
+  const handleOpen = (row) => {
+    setSelectedRow(row);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedRow(null);
   };
 
   return (
     <Box p={1}>
       <TableContainer
         sx={{
-          height: "calc(100vh - 270px)",
+          height: "calc(100vh - 280px)",
         }}
       >
         <Table stickyHeader aria-label="sticky table">
@@ -83,28 +84,24 @@ export default function TableSeller({
                         >
                           {column.id === "action" ? (
                             <>
-                              <HandleApproveButton
-                                id={row.id}
-                              />
-                              <HandleDeleteButton
-                                id={row.id}
-                                onDelete={onDelete}
-                              />
+                              <Button
+                                sx={{
+                                  backgroundColor: "#6DF292",
+                                  p: "8px",
+                                  minWidth: "0px",
+                                  borderRadius: "10px",
+                                  "&:hover": {
+                                    backgroundColor: "#6DF292",
+                                  },
+                                }}
+                                onClick={() => handleOpen(row)}
+                              >
+                                <EditIcon style={{ color: "#fff" }} />
+                              </Button>
+                              <HandleDeleteButton id={row.id} onDelete={onDelete} />
                             </>
                           ) : (
-                            <>
-                              {column.id === "report_status" ? (
-                                <>
-                                  <Chip
-                                    size="small"
-                                    label={value}
-                                    color={getChipColor(value)}
-                                  />
-                                </>
-                              ) : (
-                                value
-                              )}
-                            </>
+                            value
                           )}
                         </TableCell>
                       );
@@ -124,6 +121,9 @@ export default function TableSeller({
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+      {selectedRow && (
+        <DetailModal open={open} handleClose={handleClose} row={selectedRow} />
+      )}
     </Box>
   );
 }
