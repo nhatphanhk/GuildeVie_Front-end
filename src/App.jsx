@@ -10,7 +10,7 @@ import TestBMIPage from "./views/User/TestBMIPage";
 
 function App() {
   return (
- <RecipePage/>
+ <TestBMIPage/>
   )
 }
 
