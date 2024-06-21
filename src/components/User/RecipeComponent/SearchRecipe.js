@@ -66,11 +66,11 @@ const SearchRecipe = () => {
   return (
     <Container sx={{ borderRadius: '8px' }}>
       <Box mt={2}>
-        <Box display="flex" alignItems="center" {...getRootProps()}  >
+        <Box display="flex" alignItems="center" {...getRootProps()} sx={{width:"full", height:"30px"}}  >
           <Input {...getInputProps()} placeholder="Search for a recipe..." />
-          <IconButton sx={{ borderRadius: "0 10px 10px 0", border:'1px solid rgba(0,0,0,.25)', padding: "4px" }}>
-            <SearchIcon />
-          </IconButton>
+          
+            <SearchIcon style={{borderRadius: "0 10px 10px 0", border:'1px solid rgba(0,0,0,.25)',width:"50px", height:"44px", padding:"1px"}} />
+          
         </Box>
         {groupedOptions.length > 0 ? (
           <Listbox {...getListboxProps()}>
