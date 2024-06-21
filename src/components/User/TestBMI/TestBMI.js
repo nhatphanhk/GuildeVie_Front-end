@@ -2,16 +2,13 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-
 import { Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-
 import InputAdornment from "@mui/material/InputAdornment";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -34,6 +31,7 @@ export default function TestCard() {
   const [weight, setWeight] = React.useState("");
   const [bmi, setBmi] = React.useState(null);
   const [bmiCategory, setBmiCategory] = React.useState("");
+  const [errors, setErrors] = React.useState({});
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -51,7 +49,31 @@ export default function TestCard() {
   ];
 
   const handleSubmit = () => {
-    if (height && weight) {
+    let hasErrors = false;
+    let newErrors = {};
+
+    if (!gender) {
+      newErrors.gender = "Please select a gender.";
+      hasErrors = true;
+    }
+    if (!height) {
+      newErrors.height = "Please enter height.";
+      hasErrors = true;
+    } else if (isNaN(height)) {
+      newErrors.height = "Please enter a number.";
+      hasErrors = true;
+    }
+    if (!weight) {
+      newErrors.weight = "Please enter weight.";
+      hasErrors = true;
+    } else if (isNaN(weight)) {
+      newErrors.weight = "Please enter a number.";
+      hasErrors = true;
+    }
+
+    setErrors(newErrors);
+
+    if (!hasErrors && height && weight) {
       const heightInMeters = height / 100;
       const calculatedBmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
       setBmi(calculatedBmi);
@@ -76,6 +98,7 @@ export default function TestCard() {
     setWeight("");
     setBmi(null);
     setBmiCategory("");
+    setErrors({});
   };
 
   return (
@@ -95,7 +118,7 @@ export default function TestCard() {
             <Avatar
               alt="Remy Sharp"
               src="src/assets/Img/26.png"
-              sx={{ width: 56, height: 56 }}
+              sx={{ width: 100, height: 100 }} // Changed size of Avatar
             />
           }
         />
@@ -110,6 +133,7 @@ export default function TestCard() {
           display: "flex",
           justifyContent: "center",
           mt: "100px",
+          
         }}
       >
         <Box
@@ -127,6 +151,7 @@ export default function TestCard() {
             textAlign: "center",
             fontSize: "0.875rem",
             fontWeight: "700",
+            
           }}
         >
           <h3>Gender</h3>
@@ -144,6 +169,8 @@ export default function TestCard() {
                 select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
+                error={Boolean(errors.gender)}
+                helperText={errors.gender}
               >
                 {currencies.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
@@ -183,6 +210,8 @@ export default function TestCard() {
                 <InputAdornment position="start">cm</InputAdornment>
               ),
             }}
+            error={Boolean(errors.height)}
+            helperText={errors.height}
           />
         </Box>
 
@@ -214,22 +243,27 @@ export default function TestCard() {
                 <InputAdornment position="start">kg</InputAdornment>
               ),
             }}
+            error={Boolean(errors.weight)}
+            helperText={errors.weight}
           />
         </Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "center", mt: "100px" }}>
         <Stack spacing={30} direction="row">
-          <Button variant="contained" onClick={handleSubmit}>
-            Submit
-          </Button>
-          <Button color="error" variant="contained" onClick={handleReset}>
+        <Button color="error" variant="contained" onClick={handleReset}>
             Reset
           </Button>
+          <Button variant="contained" style={{backgroundColor:"#009f17"}} onClick={handleSubmit}>
+            Submit
+          </Button>
+         
         </Stack>
       </Box>
       {bmi && (
-        <Box sx={{ display: "flex", justifyContent: "center", mt: "20px" }}>
-          <Typography variant="h3" sx={{color:"#f26d15"}}>Your BMI is: {bmi} ({bmiCategory})</Typography>
+        <Box sx={{ display: "flex", justifyContent: "center", mb: "50px" }}>
+          <Typography variant="h3" sx={{ color: "#f26d15" }}>
+            Your BMI is: {bmi} ({bmiCategory})
+          </Typography>
         </Box>
       )}
     </>
