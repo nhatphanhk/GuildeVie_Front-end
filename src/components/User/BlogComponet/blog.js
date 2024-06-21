@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import CommentIcon from "@mui/icons-material/Comment";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Menu, MenuItem } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -22,6 +22,7 @@ import Divider from "@mui/material/Divider";
 import { Margin } from "@mui/icons-material";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
 import StarIcon from "@mui/icons-material/Star";
+
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -32,6 +33,7 @@ const ExpandMore = styled((props) => {
     duration: theme.transitions.duration.shortest,
   }),
 }));
+
 function RecipeReviewCard() {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -71,11 +73,31 @@ function RecipeReviewCard() {
     </Card>
   );
 }
+
 function OutlinedCard() {
   const [expanded, setExpanded] = React.useState(false);
+  const [favorite, setFavorite] = React.useState(false);
+  const [showCommentBox, setShowCommentBox] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleFavoriteClick = () => {
+    setFavorite(!favorite);
+  };
+
+  const handleCommentClick = () => {
+    setShowCommentBox(!showCommentBox);
+  };
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -89,19 +111,24 @@ function OutlinedCard() {
           />
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
+          <>
+            <IconButton aria-label="settings" onClick={handleMenuClick}>
+              <MoreVertIcon />
+            </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={handleMenuClose}>Edit</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Delete</MenuItem>
+            </Menu>
+          </>
         }
         title="Hai Dang"
         subheader={
           <div style={{ textAlign: "left" }}>
             <div>September 14, 2016</div>
-            <div>
-              <StarIcon style={{ color: "gold" }} />
-              <StarIcon style={{ color: "gold" }} />
-              <StarIcon style={{ color: "gold" }} />
-            </div>
           </div>
         }
         titleTypographyProps={{ textAlign: "left" }}
@@ -135,13 +162,23 @@ function OutlinedCard() {
         </Grid>
       </Grid>
       <CardActions disableSpacing sx={{ ml: 7 }}>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton aria-label="add to favorites" onClick={handleFavoriteClick}>
+          <FavoriteIcon sx={{ color: favorite ? "red" : "inherit" }} />
         </IconButton>
-        <IconButton aria-label="comment">
+        <IconButton aria-label="comment" onClick={handleCommentClick}>
           <CommentIcon />
         </IconButton>
       </CardActions>
+      {showCommentBox && (
+        <Box sx={{ ml: 7, mr: 7, mt: 2 }}>
+          <TextField
+            fullWidth
+            id="outlined-basic"
+            placeholder="Write a comment..."
+            variant="outlined"
+          />
+        </Box>
+      )}
     </Card>
   );
 }
