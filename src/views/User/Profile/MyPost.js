@@ -4,8 +4,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CommentIcon from '@mui/icons-material/Comment';
 
-import profilePic from '../../../assets/images/ingre5.jpg';
-import postImage from '../../../assets/images/ingre5.jpg';
+import profilePic from '../../../assets/Img/ingre5.jpg';
+import postImage from '../../../assets/Img/ingre5.jpg';
 
 const blogPostsData = [
     {
@@ -61,10 +61,10 @@ const MyPost = () => {
     return (
         <Box>
             {/* Profile Section */}
-            <Box component={Paper} elevation={3} sx={{ position: 'sticky', top: 0, zIndex: 1000, bgcolor: 'background.paper', p: 2, mb: 2 }}>
+            <Box component={Paper} elevation={3} sx={{ bgcolor: 'background.paper', p: 2, mb: 2, width: '80%', margin: 'auto' }}>
                 <Grid container alignItems="center">
                     <Grid item xs={8} container alignItems="center">
-                        <Avatar alt="Profile Picture" src={profilePic} />
+                        <Avatar alt="Profile Picture" src={profilePic} sx={{ width: 80, height: 80 }} />
                         <Box ml={2}>
                             <Typography variant="h6">John Doe</Typography>
                             <Typography variant="body2">1000 followers</Typography>
@@ -72,13 +72,13 @@ const MyPost = () => {
                         </Box>
                     </Grid>
                     <Grid item xs={4} container justifyContent="flex-end">
-                        <Button variant="contained" color="primary">Edit Profile</Button>
+                        <Button variant="contained" sx={{ bgcolor: '#00AD7C', color: 'white' }}>Edit Profile</Button>
                     </Grid>
                 </Grid>
             </Box>
 
             {/* Menu */}
-            <AppBar position="sticky" color="default">
+            <AppBar position="static" color="default" sx={{ width: '80%', margin: 'auto' }}>
                 <Toolbar>
                     <Box display="flex" flexGrow={1}>
                         <Button color="inherit">Blog</Button>

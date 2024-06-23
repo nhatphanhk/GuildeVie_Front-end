@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Container, Grid, Typography, Button, IconButton, Paper } from '@mui/material';
+import { Box, Container, Grid, Typography, Button, IconButton, Paper, Badge } from '@mui/material';
 import { ShoppingCart as ShoppingCartIcon } from '@mui/icons-material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-import ingreImage3 from '../../../assets/images/ingre5.jpg';
+import ingreImage3 from '../../../assets/Img/ingre5.jpg';
 
 const IngredientDetail = () => {
     const [timeLeft, setTimeLeft] = useState(43200); // 12 hours in seconds
@@ -52,9 +52,11 @@ const IngredientDetail = () => {
                     <Typography variant="h3" gutterBottom sx={{ color: '#00AD7C' }}>
                         Details
                     </Typography>
-                    <IconButton color="primary" aria-label="shopping cart" sx={{ fontSize: 40, color: '#00AD7C' }}>
-                        <ShoppingCartIcon sx={{ fontSize: 40 }} />
-                    </IconButton>
+                    <Badge badgeContent={4} color="error" anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+                        <IconButton color="primary" aria-label="shopping cart" sx={{ fontSize: 40, color: '#00AD7C' }}>
+                            <ShoppingCartIcon sx={{ fontSize: 40 }} />
+                        </IconButton>
+                    </Badge>
                 </Box>
                 <Grid container spacing={4} mt={4}>
                     {/* Ingredient Image */}
@@ -97,23 +99,22 @@ const IngredientDetail = () => {
                                     <Typography variant="body2" gutterBottom sx={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>
                                         <Box sx={{ mr: 1, color: 'red' }}>Flash sale -</Box>
                                         <Box display="flex">
-                                            <Box sx={{ bgcolor: 'black', color: 'white', borderRadius: '4px', p: 1, mr: 1 }}>
+                                            <Box sx={{ bgcolor: 'red', color: 'white', borderRadius: '4px', p: 1, mr: 1 }}>
                                                 <Typography variant="body2" component="span">
                                                     {formatTime(hours)}:
                                                 </Typography>
                                             </Box>
-                                            <Box sx={{ bgcolor: 'black', color: 'white', borderRadius: '4px', p: 1, mr: 1 }}>
+                                            <Box sx={{ bgcolor: 'red', color: 'white', borderRadius: '4px', p: 1, mr: 1 }}>
                                                 <Typography variant="body2" component="span">
                                                     {formatTime(minutes)}:
                                                 </Typography>
                                             </Box>
-                                            <Box sx={{ bgcolor: 'black', color: 'white', borderRadius: '4px', p: 1 }}>
+                                            <Box sx={{ bgcolor: 'red', color: 'white', borderRadius: '4px', p: 1 }}>
                                                 <Typography variant="body2" component="span">
                                                     {formatTime(seconds)}
                                                 </Typography>
                                             </Box>
                                         </Box>
-                                        <Box ml={1}>left</Box>
                                     </Typography>
                                 </Box>
 
@@ -131,13 +132,13 @@ const IngredientDetail = () => {
 
                                 <Grid container spacing={2} mt={2} justifyContent="space-between">
                                     <Grid item xs={5}>
-                                        <Button variant="contained" color="primary" sx={{ width: '100%', bgcolor: '#00AD7C' }}>
-                                            Buy
+                                        <Button variant="outlined" color="primary" sx={{ width: '100%', borderColor: '#00AD7C', color: '#00AD7C' }}>
+                                            <AddShoppingCartIcon sx={{ fontSize: 30 }} />
                                         </Button>
                                     </Grid>
                                     <Grid item xs={5}>
-                                        <Button variant="outlined" color="primary" sx={{ width: '100%', borderColor: '#00AD7C', color: '#00AD7C' }}>
-                                            <AddShoppingCartIcon sx={{ fontSize: 30 }} />
+                                        <Button variant="contained" color="primary" sx={{ width: '100%', bgcolor: '#00AD7C' }}>
+                                            Buy
                                         </Button>
                                     </Grid>
                                 </Grid>

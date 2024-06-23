@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, List, ListItem, ListItemText, Card, CardMedia, CardContent, IconButton } from '@mui/material';
+import { Box, Container, Grid, Typography, List, ListItem, ListItemText, Card, CardMedia, CardContent, IconButton, Badge } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-import ingreImage from '../../../assets/images/ingre5.jpg';
-import ingreImage2 from '../../../assets/images/ingre5.jpg';
-import ingreImage3 from '../../../assets/images/ingre5.jpg';
+import ingreImage from '../../../assets/Img/ingre5.jpg';
+import ingreImage2 from '../../../assets/Img/ingre5.jpg';
+import ingreImage3 from '../../../assets/Img/ingre5.jpg';
 
 const IngredientList = () => {
     // Sample data
@@ -52,13 +52,12 @@ const IngredientList = () => {
 
                     {/* Ingredient List */}
                     <Grid item xs={12} sm={8} md={9}>
-                        <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-                            <Typography variant="h4" gutterBottom sx={{ color: '#00AD7C' }}>
-                                Ingredients
-                            </Typography>
-                            <IconButton color="primary" aria-label="shopping cart" sx={{ fontSize: 40, color: '#00AD7C' }}>
-                                <ShoppingCartIcon sx={{ fontSize: 40 }} />
-                            </IconButton>
+                        <Box display="flex" alignItems="center" flex={1} justifyContent="flex-end">
+                            <Badge badgeContent={4} color="error" anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+                                <IconButton color="primary" aria-label="cart" sx={{ color: '#00AD7C' }}>
+                                    <ShoppingCartIcon sx={{ fontSize: 40 }} />
+                                </IconButton>
+                            </Badge>
                         </Box>
                         <Grid container spacing={4}>
                             {ingredients.map((ingredient, index) => (

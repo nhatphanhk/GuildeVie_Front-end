@@ -9,8 +9,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Logo from '../../../assets/images/logo.png'; // Assuming there's a logo image in the assets folder
-import postImage from '../../../assets/images/ingre5.jpg'; // Sample image for post
+import Logo from '../../../assets/Img/logo.png'; // Assuming there's a logo image in the assets folder
+import postImage from '../../../assets/Img/ingre5.jpg'; // Sample image for post
 
 const menuOptions = [
     { text: 'Statistics', icon: <BarChartIcon /> },

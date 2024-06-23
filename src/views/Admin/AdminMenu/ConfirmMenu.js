@@ -11,7 +11,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import ShopIcon from '@mui/icons-material/Shop';
 import ReportIcon from '@mui/icons-material/Report';
 import SettingsIcon from '@mui/icons-material/Settings';
-import Logo from '../../../assets/images/logo.png';
+import Logo from '../../../assets/Img/logo.png';
 const menuOptions = [
     { text: 'Statistics', icon: <BarChartIcon /> },
     { text: 'Profile', icon: <PersonIcon /> },
