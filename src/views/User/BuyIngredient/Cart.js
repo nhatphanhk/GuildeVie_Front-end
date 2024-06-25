@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Container, Grid, Typography, Button, Checkbox, IconButton, Paper, TextField } from '@mui/material';
+import { Box, Container, Grid, Typography, Button, Checkbox, IconButton, Paper, TextField, Badge } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-import ingreImage3 from '../../../assets/images/ingre5.jpg';
+import ingreImage3 from '../../../assets/Img/ingre5.jpg';
 
 const ingredientsData = [
     { id: 1, name: 'Ingredient 1', unit: '100 Gram', price: 30, originalPrice: 40, image: ingreImage3 },
@@ -85,9 +85,11 @@ const Cart = () => {
                         </Typography>
                     </Box>
                     <Box display="flex" alignItems="center" flex={1} justifyContent="flex-end">
-                        <IconButton color="primary" aria-label="cart" sx={{ color: '#00AD7C' }}>
-                            <ShoppingCartIcon sx={{ fontSize: 40 }} />
-                        </IconButton>
+                        <Badge badgeContent={4} color="error" anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+                            <IconButton color="primary" aria-label="cart" sx={{ color: '#00AD7C' }}>
+                                <ShoppingCartIcon sx={{ fontSize: 40 }} />
+                            </IconButton>
+                        </Badge>
                     </Box>
                 </Box>
                 <Grid container spacing={4} direction="column">
@@ -142,26 +144,30 @@ const Cart = () => {
                         </Grid>
                     ))}
                 </Grid>
-                <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
-                    <Typography variant="h5" sx={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#00AD7C' }}>
-                        Total: ${discountedTotalPrice.toFixed(2)}
-                    </Typography>
-                    <Box display="flex" alignItems="center">
-                        <TextField
-                            label="Discount Code"
-                            variant="outlined"
-                            value={discountCode}
-                            onChange={(e) => setDiscountCode(e.target.value)}
-                            size="small"
-                            sx={{ marginRight: 2, flex: 1 }}
-                        />
-                        <Button variant="contained" color="primary" onClick={handleApplyDiscount} sx={{ bgcolor: '#00AD7C', flex: 1 }}>
-                            Apply
-                        </Button>
+                <Box display="flex" justifyContent="flex-end" mt={4}>
+                    <Box sx={{ width: '50%' }}>
+                        <Box display="flex" alignItems="center">
+                            <TextField
+                                label="Discount Code"
+                                variant="outlined"
+                                value={discountCode}
+                                onChange={(e) => setDiscountCode(e.target.value)}
+                                size="small"
+                                sx={{ marginRight: 2, flex: 1 }}
+                            />
+                            <Button variant="contained" color="primary" onClick={handleApplyDiscount} sx={{ bgcolor: '#00AD7C', flex: 1 }}>
+                                Apply
+                            </Button>
+                        </Box>
+                        <Box mt={4} display="flex" justifyContent="space-between" alignItems="center">
+                            <Typography variant="h5" sx={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#00AD7C' }}>
+                                Total: ${discountedTotalPrice.toFixed(2)}
+                            </Typography>
+                            <Button variant="contained" color="primary" sx={{ bgcolor: '#00AD7C', fontSize: '1.2rem' }}>
+                                Order
+                            </Button>
+                        </Box>
                     </Box>
-                    <Button variant="contained" color="primary" sx={{ bgcolor: '#00AD7C', fontSize: '1.2rem' }}>
-                        Order
-                    </Button>
                 </Box>
             </Container>
         </Box>

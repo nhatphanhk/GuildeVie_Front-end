@@ -4,7 +4,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import EditIcon from '@mui/icons-material/Edit';
 
-import profilePic from '../../../assets/images/ingre5.jpg';
+import profilePic from '../../../assets/Img/ingre5.jpg';
 
 const EditProfile = () => {
     const userInfo = {
@@ -26,7 +26,7 @@ const EditProfile = () => {
     return (
         <Box>
             {/* Profile Section */}
-            <Box component={Paper} elevation={3} sx={{ position: 'sticky', top: 0, zIndex: 1000, bgcolor: 'background.paper', p: 2, mb: 2, width: '80%', margin: 'auto' }}>
+            <Box component={Paper} elevation={3} sx={{ bgcolor: 'background.paper', p: 2, mb: 2, width: '80%', margin: 'auto' }}>
                 <Grid container alignItems="center">
                     <Grid item xs={8} container alignItems="center">
                         <Avatar alt="Profile Picture" src={profilePic} sx={{ width: 80, height: 80 }} />
@@ -43,7 +43,7 @@ const EditProfile = () => {
             </Box>
 
             {/* Menu */}
-            <AppBar position="sticky" color="default" sx={{ width: '80%', margin: 'auto' }}>
+            <AppBar position="static" color="default" sx={{ width: '80%', margin: 'auto' }}>
                 <Toolbar>
                     <Box display="flex" flexGrow={1}>
                         <Button color="inherit">Blog</Button>
