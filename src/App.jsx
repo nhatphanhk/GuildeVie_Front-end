@@ -6,12 +6,12 @@ import Home from './views/User/Home';
 import BlogAboutLife from "./views/User/BlogAboutLife";
 import RecipePage from "./views/User/RecipePage";
 import TestBMIPage from "./views/User/TestBMIPage";
-import BlogDetail from "./components/User/BlogComponet/blogDetails";
+import BlogDetailPage from "./views/User/BlogDetailPage";
 
 
 function App() {
   return (
-     <BlogDetail/>
+    <BlogDetailPage/>
   )
 }
 
