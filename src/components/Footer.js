@@ -1,89 +1,97 @@
 // Footer.js
 import React from 'react';
-import { Box, Typography, Container, Link, Grid, IconButton } from '@mui/material';
+import { Box, Typography, Container, Link, Grid } from '@mui/material';
 import { Facebook, Twitter, Instagram } from '@mui/icons-material';
-import logo from '../assets/logo-bar@2x.png';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import Logo from "../assets/Img/logo-bar@2x.png"
 
 const Footer = () => {
-    const currentYear = new Date().getFullYear();
-
     return (
         <Box
             component="footer"
             sx={{
-                padding: '20px 0',
+                py: 6,
+                px: 2,
                 mt: 'auto',
                 backgroundColor: '#00AD7C',
-                color: 'white',
-                position: 'relative',
-                top: '60px'
+                color: 'white'
             }}
         >
             <Container maxWidth="lg">
-                <Grid container spacing={4} justifyContent="space-between">
+                <Grid container spacing={4}>
                     {/* Information Section */}
-                    <Grid item xs={12} sm={4} md={3}>
+                    <Grid item xs={12} sm={4}>
                         <Box display="flex" alignItems="center" mb={2}>
-                            <img src={logo} alt="GuildVie Logo" width="100%" style={{ marginRight: '8px', padding: '5px 0' }} />
+                            <img src={Logo} alt="GuildVie Logo" width="200" style={{ marginRight: '8px' }} />
                         </Box>
-                        <Typography variant="body2" gutterBottom sx={{ fontStyle: 'italic' }}>
+                        <Typography variant="h6" color="white" gutterBottom>
                             “Good health - Good vibe - Good diet”
                         </Typography>
-                        <Typography variant="body2">
-                            Address: 123 Main Street, Anytown, USA
+                        <Typography variant="body2" color="white">
+                            <LocationOnIcon />   123 Main Street, Anytown, USA
                         </Typography>
-                        <Typography variant="body2">
-                            Phone: (123) 456-7890
+                        <Typography variant="body2" color="white">
+                            <PhoneIcon />    (123) 456-7890
                         </Typography>
-                        <Typography variant="body2">
-                            Email: info@example.com
+                        <Typography variant="body2" color="white">
+                            <EmailIcon />    info@example.com
                         </Typography>
                     </Grid>
 
                     {/* Quick Links Section */}
-                    <Grid item xs={12} sm={4} md={3}>
-                        <Typography variant="h6" gutterBottom>
+                    <Grid item xs={12} sm={4}>
+                        <Typography variant="h6" color="white" gutterBottom>
                             Quick Links
                         </Typography>
-                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom>
-                            Home
+                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom sx={{ textDecoration: 'none' }}>
+                            <ArrowRightIcon />  Home
                         </Link>
-                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom>
-                            About Us
+                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom sx={{ textDecoration: 'none' }}>
+                            <ArrowRightIcon />  Shop
                         </Link>
-                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom>
-                            Services
+                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom sx={{ textDecoration: 'none' }}>
+                            <ArrowRightIcon />  Shopping Cart
                         </Link>
-                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom>
-                            Contact
+                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom sx={{ textDecoration: 'none' }}>
+                            <ArrowRightIcon />  Checkout
+                        </Link>
+                        <Link href="#" color="inherit" variant="body2" display="block" gutterBottom sx={{ textDecoration: 'none' }}>
+                            <ArrowRightIcon />  Contact us
                         </Link>
                     </Grid>
 
                     {/* Follow Us Section */}
-                    <Grid item xs={12} sm={4} md={3}>
-                        <Typography variant="h6" gutterBottom>
+                    <Grid item xs={12} sm={4}>
+                        <Typography variant="h6" color="white" gutterBottom>
                             Follow Us
                         </Typography>
-                        <Box>
-                            <IconButton href="https://facebook.com" target="_blank" color="inherit" sx={{ mr: 1 }}>
-                                <Facebook />
-                            </IconButton>
-                            <IconButton href="https://twitter.com" target="_blank" color="inherit" sx={{ mr: 1 }}>
-                                <Twitter />
-                            </IconButton>
-                            <IconButton href="https://instagram.com" target="_blank" color="inherit" sx={{ mr: 1 }}>
-                                <Instagram />
-                            </IconButton>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', mt: 1 }}>
+                            <Link href="https://facebook.com" target="_blank" color="inherit" sx={{ textDecoration: 'none' }}>
+                                <Facebook />&nbsp;GuildVie
+                            </Link>
+                            <Link href="https://twitter.com" target="_blank" color="inherit" sx={{ textDecoration: 'none' }}>
+                                <Twitter />         GuildVie
+                            </Link>
+                            <Link href="https://instagram.com" target="_blank" color="inherit" sx={{ textDecoration: 'none' }}>
+                                <Instagram />       GuildVie
+                            </Link>
+                            <Link href="https://linkedin.com" target="_blank" color="inherit" sx={{ textDecoration: 'none' }}>
+                                <LinkedInIcon />        GuildVie
+                            </Link>
                         </Box>
                     </Grid>
                 </Grid>
-                <Box mt={4} textAlign="center">
-                    <Typography variant="body2">
+                <Box mt={4}>
+                    <Typography variant="body2" color="white" align="center">
                         {'© '}
-                        <Link color="inherit" href="https://your-website.com/">
-                            GuildVie
+                        <Link color="inherit" href="https://your-website.com/" sx={{ textDecoration: 'none' }}>
+                            GuildVie.com
                         </Link>{' '}
-                        {currentYear}
+                        {new Date().getFullYear()}
                         {'.'}
                     </Typography>
                 </Box>

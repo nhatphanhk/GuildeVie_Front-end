@@ -5,7 +5,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
-import logo from '../assets/imgs/logo-bar@2x.png';
+<<<<<<< HEAD:src/components/Header.js
+import logo from '../assets/logo-bar@2x.png';
+=======
+import logo from '../../assets/Img/logo-bar@2x.png';
+>>>>>>> 58819c5df632953346b9f405fdf2f8ad36b4def2:src/components/User/Header.js
 import Grid from '@mui/material/Grid';
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
