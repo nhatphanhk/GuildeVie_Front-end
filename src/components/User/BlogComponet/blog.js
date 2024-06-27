@@ -1,27 +1,25 @@
 import * as React from "react";
-
-import CommentIcon from "@mui/icons-material/Comment";
-import { Box, Grid, Menu, MenuItem } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import {
+  Box,
+  Card,
+  CardHeader,
+  TextField,
+  Avatar,
+  styled,
+  IconButton,
+  Grid,
+  Divider,
+  CardMedia,
+  CardActions,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CommentIcon from "@mui/icons-material/Comment";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import TextField from "@mui/material/TextField";
-import Divider from "@mui/material/Divider";
-import { Margin } from "@mui/icons-material";
-import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
-import StarIcon from "@mui/icons-material/Star";
+import CreatePost from "./createpost";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -36,9 +34,18 @@ const ExpandMore = styled((props) => {
 
 function RecipeReviewCard() {
   const [expanded, setExpanded] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -69,7 +76,11 @@ function RecipeReviewCard() {
         sx={{ mt: "5px", padding: "10px" }}
         placeholder="Post somethings today..."
         variant="outlined"
+        onClick={handleOpen}
       />
+
+      {/* createpost */}
+      <CreatePost open={open} handleClose={handleClose} /> 
     </Card>
   );
 }
@@ -139,9 +150,7 @@ function OutlinedCard() {
       </Typography>
 
       <Grid className="imgdish" container spacing={2}>
-        {/* Set container spacing */}
         <Grid item xs={6} sx={{ paddingRight: 1 / 2 }}>
-          {/* Add padding to the right */}
           <CardMedia
             component="img"
             height="194"
@@ -151,7 +160,6 @@ function OutlinedCard() {
           />
         </Grid>
         <Grid item xs={6} sx={{ paddingLeft: 1 / 2 }}>
-          {/* Add padding to the left */}
           <CardMedia
             component="img"
             height="194"
