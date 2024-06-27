@@ -7,11 +7,12 @@ import BlogAboutLife from "./views/User/BlogAboutLife";
 import RecipePage from "./views/User/RecipePage";
 import TestBMIPage from "./views/User/TestBMIPage";
 import BlogDetailPage from "./views/User/BlogDetailPage";
+import RecipeDetailsPage from "./views/User/RecipeDetailsPage";
 
 
 function App() {
   return (
-    <BlogDetailPage/>
+   <RecipeDetailsPage/>
   )
 }
 
